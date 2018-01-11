@@ -14,7 +14,6 @@ class ArticleReader:
                 articles += glob(text)
         reader = XMLCorpusReader('C:/Users/Paul/Desktop/Spiegel-Corpus', articles)
         print(len(reader.fileids()))
-
         # An example for the online corpus
         """""
         words = reader.words(reader.fileids()[0])
