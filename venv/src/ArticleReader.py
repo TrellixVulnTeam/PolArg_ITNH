@@ -1,4 +1,6 @@
 class ArticleReader:
+    #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
+    #von Sätzen im Article Objekt zu speichern?
     def readArticles(self):
         from glob import glob
         from nltk.corpus import XMLCorpusReader
