@@ -1,12 +1,13 @@
-class ArticleReader:
-    #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
-    #von Sätzen im Article Objekt zu speichern?
-    def readArticles(self):
-        from glob import glob
-        from nltk.corpus import XMLCorpusReader
+from glob import glob
+from nltk.corpus import XMLCorpusReader
+from nltk.corpus import PlaintextReader
 
-        texts_online = glob('C:/Users/Paul/Desktop/Vorläufiger Corpus/Online/*')
-        texts_magazine = glob('C:/Users/Paul/Desktop/Vorläufiger Corpus/Magazin/*')
+
+class ArticleReader():
+    def read_articles(self, loc_corpus, article_length):
+
+        texts_online = glob(loc_corpus + '/Online/*')
+        texts_magazine = glob(loc_corpus + '/Magazin/*')
         years_online = []
         years_magazine = []
         for text in texts_online:
@@ -16,8 +17,9 @@ class ArticleReader:
             if text.endswith('.xml'):
                 years_magazine += glob(text)
 
-        reader_online = XMLCorpusReader('C:/Users/Paul/Desktop/Vorläufiger Corpus', years_online)
-        reader_magazine = XMLCorpusReader('C:/Users/Paul/Desktop/Vorläufiger Corpus', years_magazine)
+        reader_online = XMLCorpusReader(loc_corpus, years_online)
+        reader_magazine = XMLCorpusReader(loc_corpus, years_magazine)
+        reader_corpus = PlaintextCorpusReader(loc_corpus + '/Magazin/Corpus-Magazin', '.*', encoding='utf-16')
 
         articles = []
 
@@ -36,10 +38,12 @@ class ArticleReader:
             for article in article_list:
                 articles.append(article)
             print(len(article_list))
+        for fileid in reader_corpus.fileids():
+            if len(reader_corpus.raw(fileid)) > article_length:
+                articles.append(reader_corpus.raw(fileid))
+                print(len(reader_corpus.raw(fileid)))
 
         politic = [article for article in articles if article.__contains__('Politik')]
         print(len(articles))
         print(len(politic))
         return politic
-
-
