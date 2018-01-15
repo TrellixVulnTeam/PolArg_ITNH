@@ -1,0 +1,1 @@
+class ComparisonResult(object):
