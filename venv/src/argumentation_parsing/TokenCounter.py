@@ -4,3 +4,10 @@ class TokenCounter:
         tokenCounter
 
         return tokenCounter
+
+
+    def getAverageTokenCountPerSentence(self,article):
+        averageTokenCount
+
+
+        return averageTokenCount

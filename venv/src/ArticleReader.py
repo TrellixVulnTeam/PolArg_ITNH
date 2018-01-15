@@ -9,8 +9,8 @@ from nltk.corpus import PlaintextReader
 class ArticleReader():
     def read_articles(self, loc_corpus, article_length):
 
-        texts_online = glob(loc_corpus+'/Online/*')
-        texts_magazine = glob(loc_corpus+'/Magazin/*')
+        texts_online = glob(loc_corpus + '/Online/*')
+        texts_magazine = glob(loc_corpus + '/Magazin/*')
         years_online = []
         years_magazine = []
         for text in texts_online:
@@ -22,7 +22,7 @@ class ArticleReader():
 
         reader_online = XMLCorpusReader(loc_corpus, years_online)
         reader_magazine = XMLCorpusReader(loc_corpus, years_magazine)
-        reader_corpus = PlaintextCorpusReader(loc_corpus+'/Magazin/Corpus-Magazin', '.*', encoding='utf-16')
+        reader_corpus = PlaintextCorpusReader(loc_corpus + '/Magazin/Corpus-Magazin', '.*', encoding='utf-16')
 
         articles = []
 
@@ -50,5 +50,3 @@ class ArticleReader():
         print(len(articles))
         print(len(politic))
         return politic
-
-
