@@ -10,6 +10,7 @@ class VectorCalculator:
 
 
     def calculateVector(self,article,pathToIndicatorFile):
-
+        indicatorList = getattr(IndicatorReader(),'readIndicatorFile')(pathToIndicatorFile)
+        indicatorCount = getattr(IndicatorAnalyzer,)
 
         return article
