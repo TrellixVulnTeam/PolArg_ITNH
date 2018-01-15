@@ -1,6 +1,7 @@
-class IndicatorReader:
+class IndicatorReader(object):
 
+    @staticmethod
     def readIndicatorFile(self, pathToIndicatorFile):
-        indicatorList
+        indicatorList = list()
 
         return indicatorList

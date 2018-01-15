@@ -1,35 +1,39 @@
+import ArgumentVector
+import IndicatorReader
+import IndicatorAnalyzer
+
+
 class VectorCalculator:
 
     def updateVectorsInCorpus(self,corpus,pathToIndicatorFile):
         print("Calculating vectors for corups")
 
         for article in corpus:
-            calculateVector(article,pathToIndicatorFile)
+            self.calculateVector(article, pathToIndicatorFile)
 
-        return articles
+        return corpus
 
 
     def calculateVector(self,article,pathToIndicatorFile):
-        indicatorList = getattr(IndicatorReader(),'readIndicatorFile')(pathToIndicatorFile)
-        indicatorCount = getattr(IndicatorAnalyzer,'getIndicato')
+        indicatorList = IndicatorReader.readIndicatorFile(pathToIndicatorFile)
+        indicatorCount = IndicatorAnalyzer.analyzeIndicatorOccurences(indicatorList,article)
 
         return article
 
 
     def calculateAverageVector(self,articles):
-        averageTokenCount
-        averageIndicatorCount
-
-        sumTokenCount
-        sumIndicatorCount
+        sumTokenCount = 0
+        sumIndicatorCount = 0
+        sumAverageSentenceLength = 0
+        sumAverageNumberOfSubsentences = 0
 
         for article in articles:
             sumTokenCount = sumTokenCount + article.vector.tokenCount
             sumIndicatorCount = sumIndicatorCount + article.vector.indicatorCount
 
-
-        averageTokenCount = sumTokenCount / articles.size
-        avergeIndicatorCount = sumIndicatorCount / articles.size
-
-        averageVector = ArgumentVector.init(averageTokenCount,avergeIndicatorCount)
+        averageVector = ArgumentVector.init()
+        averageVector.TokenCount(sumTokenCount / articles.size)
+        averageVector.IndicatorCount(sumIndicatorCount / articles.size)
+        averageVector.AverageNumberOfSubsentences(sumAverageNumberOfSubsentences / articles.size)
+        averageVector.AverageSentenceLength(sumAverageSentenceLength / articles.size)
         return averageVector

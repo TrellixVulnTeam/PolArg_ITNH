@@ -7,10 +7,14 @@ class StopwordRemover(object):
         return sentence
 
     def removeStopwordsFromArticle(self, stopwordlist, article):
-
-        return article
+        modifiedArticle = list()
+        for sentence in article:
+            modifiedArticle.append(self.removeStopwordsFromSentence(stopwordlist,sentence))
+        return modifiedArticle
 
 
     def removeStopwordsFromCorpus(self, stopwordlist, corpus):
-
-        return corpus
+        modifiedCorpus = list()
+        for article in corpus:
+            modifiedCorpus.append(self.removeStopwordsFromArticle(stopwordlist,article))
+        return modifiedCorpus

@@ -1,15 +1,18 @@
+import ArticleReader
+import StopwordFileReader
+import StopwordRemover
+import VectorCalculator
+import VectorFileHandler
+
+
 class TrainingMode:
 
-    def executeTraining(self, pathToTrainingFiles, pathToStopwordFile, pathToIndicatorFile,trainingdataname):
-        print("Start training")
-        print("Read training files...")
-        articles = getattr(ArticleReader(), 'readArticles')(pathToTrainingFiles)
+    def executeTraining(self, pathToTrainingFiles, pathToStopwordFile, pathToIndicatorFile,trainingdataname,article_length,pathToVectorFile):
+        articles = ArticleReader.read_articles(pathToTrainingFiles, article_length)
 
-        stopwordlist = getattr(StopwordFileReader,'readStopwordFile')(pathToStopwordFile)
-        articles = getattr(StopwordRemover,'removeStopwordsFromCorpus')(stopwordlist,articles)
+        stopwordlist = StopwordFileReader.readStopwordFile(pathToStopwordFile)
+        articles = StopwordRemover.removeStopwordsFromCorpus(stopwordlist,articles)
 
-        articles = getattr(VectorCalculator,'updateVectorsInCorpus')(articles,pathToIndicatorFile)
+        articles = VectorCalculator.updateVectorsInCorpus(articles,pathToIndicatorFile)
 
-        getattr(VectorFileHandler,'saveAverageVector')(articles,trainingdataname)
-
-        return
+        VectorFileHandler.safeVectorInFile(pathToVectorFile)

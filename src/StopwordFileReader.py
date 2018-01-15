@@ -1,6 +1,6 @@
 class StopwordFileReader(object):
 
     def readStopwordFile(self, pathToStopwordFile):
-        stopwordlist
+        stopwordlist = list()
 
         return stopwordlist

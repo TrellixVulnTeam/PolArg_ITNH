@@ -1,18 +1,25 @@
+import ArticleReader
+import StopwordFileReader
+import StopwordRemover
+import VectorCalculator
+import VectorComparator
+
+
 class AnalyzationMode:
 
     def execute(self, pathToTrainingFiles, pathToStopwordFile, pathToIndicatorFile):
         print("Start Analyzation")
         print("Read analyzation files...")
-        corpus = getattr(ArticleReader(), 'readArticles')(pathToTrainingFiles)
+        corpus = ArticleReader.read_articles(pathToTrainingFiles)
 
-        stopwordlist = getattr(StopwordFileReader(), 'readStopwordFile')(pathToStopwordFile)
-        corpusWithoutStopwords = getattr(StopwordRemover(), 'removeStopwordsFromCorpus')(stopwordlist, corpus)
+        stopwordlist = StopwordFileReader.readStopwordFile(pathToStopwordFile)
+        corpusWithoutStopwords = StopwordRemover.removeStopwordsFromCorpus(stopwordlist, corpus)
 
-        corpusWithVectors = getattr(VectorCalculator(), 'updateVectorsInCorpus')(corpusWithoutStopwords, pathToIndicatorFile)
+        corpusWithVectors = VectorCalculator.updateVectorsInCorpus(corpusWithoutStopwords, pathToIndicatorFile)
 
-        comparisonResults = getattr(VectorComparator(),'compareAnalyzationVectorsToTrainingVectors')(corpusWithVectors,pathToTrainingVectors)
+        comparisonResults = VectorComparator.compareCorpusVectorsToTrainingVectors(corpusWithVectors,pathToTrainingFiles)
 
         for result in comparisonResults:
-            print(getattr(result,'toString'))
+            print(result.showResult)
 
         return

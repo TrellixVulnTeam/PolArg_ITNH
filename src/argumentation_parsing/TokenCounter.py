@@ -1,6 +1,6 @@
 class TokenCounter:
 
     def countTokens(self, sentenceToCount):
-        tokenCounter
+        tokenCount = 0
 
-        return tokenCounter
+        return tokenCount
