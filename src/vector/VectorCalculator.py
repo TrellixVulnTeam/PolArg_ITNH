@@ -5,35 +5,34 @@ import IndicatorAnalyzer
 
 class VectorCalculator:
 
-    def updateVectorsInCorpus(self,corpus,pathToIndicatorFile):
-        print("Calculating vectors for corups")
+    def update_vectors_in_corpus(self, corpus, path_to_indicator_file):
+        print("Calculating vectors for corpus")
 
         for article in corpus:
-            self.calculateVector(article, pathToIndicatorFile)
+            self.calculate_vector(article, path_to_indicator_file)
 
         return corpus
 
-
-    def calculateVector(self,article,pathToIndicatorFile):
-        indicatorList = IndicatorReader.readIndicatorFile(pathToIndicatorFile)
-        indicatorCount = IndicatorAnalyzer.analyzeIndicatorOccurences(indicatorList,article)
+    @staticmethod
+    def calculate_vector(self, article, path_to_indicator_file):
+        indicator_list = IndicatorReader.read_indicator_file(path_to_indicator_file)
+        indicator_count = IndicatorAnalyzer.analyze_indicator_occurences(indicator_list, article)
 
         return article
 
-
-    def calculateAverageVector(self,articles):
-        sumTokenCount = 0
-        sumIndicatorCount = 0
-        sumAverageSentenceLength = 0
-        sumAverageNumberOfSubsentences = 0
-
+    @staticmethod
+    def calculate_average_vector(self, articles):
+        sum_token_count = 0
+        sum_indicator_count = 0
+        sum_average_sentence_length = 0
+        sum_average_number_of_subsentences = 0
         for article in articles:
-            sumTokenCount = sumTokenCount + article.vector.tokenCount
-            sumIndicatorCount = sumIndicatorCount + article.vector.indicatorCount
+            sum_token_count = sum_token_count + article.vector.token_count
+            sum_indicator_count = sum_indicator_count + article.vector.indicator_count
 
-        averageVector = ArgumentVector.init()
-        averageVector.TokenCount(sumTokenCount / articles.size)
-        averageVector.IndicatorCount(sumIndicatorCount / articles.size)
-        averageVector.AverageNumberOfSubsentences(sumAverageNumberOfSubsentences / articles.size)
-        averageVector.AverageSentenceLength(sumAverageSentenceLength / articles.size)
-        return averageVector
+        average_vector = ArgumentVector.init()
+        average_vector.token_count(sum_token_count / articles.size)
+        average_vector.indicator_count(sum_indicator_count / articles.size)
+        average_vector.average_number_of_subsentences(sum_average_number_of_subsentences / articles.size)
+        average_vector.average_sentence_length(sum_average_sentence_length / articles.size)
+        return average_vector

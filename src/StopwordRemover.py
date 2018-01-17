@@ -1,20 +1,21 @@
 class StopwordRemover(object):
 
-    def removeStopwordsFromSentence(self, stopwordlist, sentence):
+    @staticmethod
+    def remove_stopwords_from_sentence(self, stopwordlist, sentence):
         print("Iterate over sentence and compare tokens with the stopwordlist. "
               "Remove token if it occurs in the stopwordlist")
 
         return sentence
 
-    def removeStopwordsFromArticle(self, stopwordlist, article):
-        modifiedArticle = list()
+    def remove_stopwords_from_article(self, stopwordlist, article):
+        modified_article = list()
         for sentence in article:
-            modifiedArticle.append(self.removeStopwordsFromSentence(stopwordlist,sentence))
-        return modifiedArticle
+            modified_article.append(self.remove_stopwords_from_sentence(stopwordlist, sentence))
+        return modified_article
 
-
-    def removeStopwordsFromCorpus(self, stopwordlist, corpus):
-        modifiedCorpus = list()
+    @staticmethod
+    def remove_stopwords_from_corpus(self, stopwordlist, corpus):
+        modified_corpus = list()
         for article in corpus:
-            modifiedCorpus.append(self.removeStopwordsFromArticle(stopwordlist,article))
-        return modifiedCorpus
+            modified_corpus.append(self.remove_stopwords_from_article(stopwordlist, article))
+        return modified_corpus

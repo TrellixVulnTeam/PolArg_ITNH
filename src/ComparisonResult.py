@@ -1,4 +1,5 @@
 class ComparisonResult(object):
 
-    def showResult(self):
+    @staticmethod
+    def show_result(self):
         print("Printing result:")

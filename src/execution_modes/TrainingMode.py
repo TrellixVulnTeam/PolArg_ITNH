@@ -7,12 +7,14 @@ import VectorFileHandler
 
 class TrainingMode:
 
-    def executeTraining(self, pathToTrainingFiles, pathToStopwordFile, pathToIndicatorFile,trainingdataname,article_length,pathToVectorFile):
-        articles = ArticleReader.read_articles(pathToTrainingFiles, article_length)
+    @staticmethod
+    def execute_training(self, path_to_training_files, path_to_stopword_file, path_to_indicator_file, training_data_name,
+                         article_length,path_to_vector_file):
+        articles = ArticleReader.read_articles(path_to_training_files, article_length)
 
-        stopwordlist = StopwordFileReader.readStopwordFile(pathToStopwordFile)
-        articles = StopwordRemover.removeStopwordsFromCorpus(stopwordlist,articles)
+        articles = StopwordRemover.remove_stopwords_from_corpus(StopwordFileReader.read_stopwordfile(path_to_stopword_file), articles)
 
-        articles = VectorCalculator.updateVectorsInCorpus(articles,pathToIndicatorFile)
+        #articles = #
+        VectorCalculator.update_vectors_in_corpus(articles, path_to_indicator_file)
 
-        VectorFileHandler.safeVectorInFile(pathToVectorFile)
+        VectorFileHandler.safe_vector_in_file(path_to_vector_file)

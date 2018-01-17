@@ -7,19 +7,21 @@ import VectorComparator
 
 class AnalyzationMode:
 
-    def execute(self, pathToTrainingFiles, pathToStopwordFile, pathToIndicatorFile):
+    @staticmethod
+    def execute(self, path_to_training_files, path_to_stopword_file, path_to_indicator_file):
         print("Start Analyzation")
         print("Read analyzation files...")
-        corpus = ArticleReader.read_articles(pathToTrainingFiles)
+        corpus = ArticleReader.read_articles(path_to_training_files)
 
-        stopwordlist = StopwordFileReader.readStopwordFile(pathToStopwordFile)
-        corpusWithoutStopwords = StopwordRemover.removeStopwordsFromCorpus(stopwordlist, corpus)
+        stopwordlist = StopwordFileReader.read_stopword_file(path_to_stopword_file)
+        corpus_without_stopwords = StopwordRemover.remove_stopwords_from_corpus(stopwordlist, corpus)
 
-        corpusWithVectors = VectorCalculator.updateVectorsInCorpus(corpusWithoutStopwords, pathToIndicatorFile)
+        corpus_with_vectors = VectorCalculator.update_vectors_in_corpus(corpus_without_stopwords, path_to_indicator_file)
 
-        comparisonResults = VectorComparator.compareCorpusVectorsToTrainingVectors(corpusWithVectors,pathToTrainingFiles)
+        comparison_results = VectorComparator.compare_corpus_vectors_to_training_vectors(corpus_with_vectors,
+                                                                                         path_to_training_files)
 
-        for result in comparisonResults:
-            print(result.showResult)
+        for result in comparison_results:
+            print(result.show_result)
 
         return

@@ -5,25 +5,25 @@ class Article(object):
 		self._vector = none
 
 	@property
-	def Vector(self):
+	def vector(self):
 		return self._vector
 
-	@Vector.setter
-	def Vector(self, val):
+	@vector.setter
+	def vector(self, val):
 		self._vector = val
 
 	@property
-	def Author(self):
+	def author(self):
 		return self._author
 
-	@Author.setter
-	def Author(self, val):
+	@author.setter
+	def author(self, val):
 		self._author = val
 
 	@property
-	def Content(self):
+	def content(self):
 		return self._content
 
-	@Content.setter
-	def Content(self, val):
+	@content.setter
+	def content(self, val):
 		self._content = val

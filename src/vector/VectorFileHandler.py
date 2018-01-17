@@ -3,11 +3,12 @@ import ArgumentVector
 
 class VectorFileHandler:
 
-    def readVectorFromFile(self, pathToVectorFile):
-        vectorFromFile = ArgumentVector.__init__()
+    @staticmethod
+    def read_vector_from_file(self, path_to_vector_file):
+        vector_from_file = ArgumentVector.__init__()
 
-        return vectorFromFile
+        return vector_from_file
 
-
-    def safeVectorInFile(self, pathToVectorFile):
+    @staticmethod
+    def safe_vector_in_file(self, path_to_vector_file):
         print("Vector safed in File!")

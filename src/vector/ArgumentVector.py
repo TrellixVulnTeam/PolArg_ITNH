@@ -1,38 +1,38 @@
 class ArgumentVector(object):
     def __init__(self):
-        self._indicatorCount = 0
+        self._indicator_count = 0
         self._average_sentence_length = 0
         self._average_number_of_subsentences = 0
         self._tokencount = 0;
 
     @property
-    def IndicatorCount(self):
-        return self._indicatorCount
+    def indicator_count(self):
+        return self._indicator_count
 
-    @IndicatorCount.setter
-    def IndicatorCount(self, val):
-        self._indicatorCount = val
+    @indicator_count.setter
+    def indicator_count(self, val):
+        self._indicator_count = val
 
     @property
-    def AverageSentenceLength(self):
+    def average_sentence_length(self):
         return self._average_sentence_length
 
-    @AverageSentenceLength.setter
-    def AverageSentenceLength(self, val):
+    @average_sentence_length.setter
+    def average_sentence_length(self, val):
         self._average_sentence_length = val
 
     @property
-    def AverageNumberOfSubsentences(self):
+    def average_number_of_subsentences(self):
         return self._average_number_of_subsentences
 
-    @AverageNumberOfSubsentences.setter
-    def AverageNumberOfSubsentences(self, val):
+    @average_number_of_subsentences.setter
+    def average_number_of_subsentences(self, val):
         self._average_number_of_subsentences = val
 
     @property
-    def TokenCount(self):
+    def token_count(self):
         return self._tokencount
 
-    @TokenCount.setter
-    def TokenCount(self, val):
+    @token_count.setter
+    def token_count(self, val):
         self._tokencount = val
