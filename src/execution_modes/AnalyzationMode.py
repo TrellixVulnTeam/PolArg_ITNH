@@ -5,7 +5,7 @@ import VectorCalculator
 import VectorComparator
 
 
-class AnalyzationMode:
+class AnalyzationMode(object):
 
     @staticmethod
     def execute(path_to_analyzation_files, path_to_stopword_file, path_to_indicator_file, path_to_training_file_one,

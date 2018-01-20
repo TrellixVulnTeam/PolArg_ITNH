@@ -5,7 +5,7 @@ import VectorCalculator
 import VectorFileHandler
 
 
-class TrainingMode:
+class TrainingMode(object):
 
     @staticmethod
     def execute_training(path_to_training_files,minimal_article_length, path_to_stopword_file, path_to_indicator_file
