@@ -1,3 +1,5 @@
+# -- coding: utf-8 --
+
 class TagTuple(object):
 	def __init__(self, Word, Tag):
 		self.__word = Word
