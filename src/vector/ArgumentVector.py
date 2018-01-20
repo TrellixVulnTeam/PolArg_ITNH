@@ -4,6 +4,7 @@ class ArgumentVector(object):
         self._average_sentence_length = 0
         self._average_number_of_subsentences = 0
         self._tokencount = 0;
+        self._stopword_to_remaining_words_ratio = 0;
 
     @property
     def indicator_count(self):
@@ -36,3 +37,11 @@ class ArgumentVector(object):
     @token_count.setter
     def token_count(self, val):
         self._tokencount = val
+
+    @property
+    def _stopword_to_remaining_words_ratio(self):
+        return self._tokencount
+
+    @_stopword_to_remaining_words_ratio.setter
+    def _stopword_to_remaining_words_ratio(self, val):
+        self._stopword_to_remaining_words_ratio = val
