@@ -1,29 +1,38 @@
 class Article(object):
-	def __init__(self):
-		self._author = ""
-		self._content = ""
-		self._vector = none
+    def __init__(self):
+        self._id = ""
+        self._author = ""
+        self._content = ""
+        self._vector = none
 
-	@property
-	def vector(self):
-		return self._vector
+    @property
+    def _id(self):
+        return self._id
 
-	@vector.setter
-	def vector(self, val):
-		self._vector = val
+    @_id.setter
+    def _id(self, val):
+        self._id = val
 
-	@property
-	def author(self):
-		return self._author
+    @property
+    def vector(self):
+        return self._vector
 
-	@author.setter
-	def author(self, val):
-		self._author = val
+    @vector.setter
+    def vector(self, val):
+        self._vector = val
 
-	@property
-	def content(self):
-		return self._content
+    @property
+    def author(self):
+        return self._author
 
-	@content.setter
-	def content(self, val):
-		self._content = val
+    @author.setter
+    def author(self, val):
+        self._author = val
+
+    @property
+    def content(self):
+        return self._content
+
+    @content.setter
+    def content(self, val):
+        self._content = val

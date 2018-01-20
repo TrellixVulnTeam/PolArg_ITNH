@@ -5,6 +5,7 @@ class ArgumentVector(object):
         self._average_number_of_subsentences = 0
         self._tokencount = 0;
         self._stopword_to_remaining_words_ratio = 0;
+        self._orientation = none
 
     @property
     def indicator_count(self):
@@ -45,3 +46,11 @@ class ArgumentVector(object):
     @_stopword_to_remaining_words_ratio.setter
     def _stopword_to_remaining_words_ratio(self, val):
         self._stopword_to_remaining_words_ratio = val
+
+    @property
+    def _orientation(self):
+        return self._orientation
+
+    @_orientation.setter
+    def _orientation(self, val):
+        self._orientation = val
