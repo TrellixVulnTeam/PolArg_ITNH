@@ -1,11 +1,11 @@
 class TagTuple(object):
-	def __init__(self, POS, Tag):
-		self.__pos = POS
+	def __init__(self, Word, Tag):
+		self.__word = Word
 		self.__tag = Tag
 
 	@property
-	def POS(self):
-		return self.__pos
+	def Word(self):
+		return self.__word
 
 	@property
 	def Tag(self):
