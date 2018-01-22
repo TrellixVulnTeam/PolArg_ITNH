@@ -6,8 +6,11 @@ from nltk.corpus import PlaintextCorpusReader
 
 #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
 #von Sätzen im Article Objekt zu speichern?
+from Article import Article
+
+
 class ArticleReader():
-    def read_articles(self, loc_corpus, article_length):
+    def read_articles(loc_corpus, article_length):
 
         texts_online = glob(loc_corpus + '/Online/*')
         texts_magazine = glob(loc_corpus + '/Magazin/*')
@@ -25,7 +28,7 @@ class ArticleReader():
         reader_corpus = PlaintextCorpusReader(loc_corpus + '/Magazin/Corpus-Magazin', '.*', encoding='utf-16')
 
         articles = []
-
+        """
         for fileid in reader_online.fileids():
             words = reader_online.words(fileid)
             string = ' '.join(words)
@@ -33,13 +36,16 @@ class ArticleReader():
             for article in article_list:
                 articles.append(article)
             print(len(article_list))
+        """
         # an example for the magazine corpus
         for fileid in reader_magazine.fileids():
             words = reader_magazine.words(fileid)
             string = ' '.join(words)
             article_list = string.split('SP DER SPIEGEL')
             for article in article_list:
-                articles.append(article)
+                addArticle = Article.__init__()
+
+                articles.append(addArticle.content(article))
             print(len(article_list))
         """
         for fileid in reader_corpus.fileids():

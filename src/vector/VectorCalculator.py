@@ -5,18 +5,18 @@ import IndicatorAnalyzer
 
 class VectorCalculator:
 
-    def update_vectors_in_corpus(self, corpus, path_to_indicator_file):
+    def update_vectors_in_corpus(corpus, path_to_indicator_file):
         print("Calculating vectors for corpus")
 
         for article in corpus:
-            self.calculate_vector(article, path_to_indicator_file)
+            VectorCalculator.calculate_vector(article, path_to_indicator_file)
 
         return corpus
 
     @staticmethod
     def calculate_vector(article, path_to_indicator_file):
-        indicator_list = IndicatorReader.read_indicator_file(path_to_indicator_file)
-        indicator_count = IndicatorAnalyzer.analyze_indicator_occurences(indicator_list, article)
+        indicator_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_indicator_file)
+        indicator_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(indicator_list, article)
 
         return article
 
