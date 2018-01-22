@@ -3,9 +3,9 @@ class ArgumentVector(object):
         self._indicator_count = 0
         self._average_sentence_length = 0
         self._average_number_of_subsentences = 0
-        self._tokencount = 0;
-        self._stopword_to_remaining_words_ratio = 0;
-        self._orientation = none
+        self._token_count = 0
+        self._stopword_to_remaining_words_ratio = 0
+        self._orientation = ''
 
     @property
     def indicator_count(self):
@@ -33,24 +33,24 @@ class ArgumentVector(object):
 
     @property
     def token_count(self):
-        return self._tokencount
+        return self._token_count
 
     @token_count.setter
     def token_count(self, val):
-        self._tokencount = val
+        self._token_count = val
 
     @property
-    def _stopword_to_remaining_words_ratio(self):
-        return self._tokencount
+    def stopword_to_remaining_words_ratio(self):
+        return self._token_count
 
-    @_stopword_to_remaining_words_ratio.setter
-    def _stopword_to_remaining_words_ratio(self, val):
+    @stopword_to_remaining_words_ratio.setter
+    def stopword_to_remaining_words_ratio(self, val):
         self._stopword_to_remaining_words_ratio = val
 
     @property
-    def _orientation(self):
+    def orientation(self):
         return self._orientation
 
-    @_orientation.setter
-    def _orientation(self, val):
+    @orientation.setter
+    def orientation(self, val):
         self._orientation = val
