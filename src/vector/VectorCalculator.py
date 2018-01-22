@@ -1,6 +1,7 @@
 import ArgumentVector
 import IndicatorReader
 import IndicatorAnalyzer
+from TokenCounter import TokenCounter
 
 
 class VectorCalculator:
@@ -18,6 +19,13 @@ class VectorCalculator:
         indicator_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_indicator_file)
         indicator_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(indicator_list, article)
 
+        vector = ArgumentVector.ArgumentVector()
+
+        vector.token_count = TokenCounter.count_article_tokens(article)
+        vector.average_sentence_length = TokenCounter.count_average_sentence_length(article)
+        vector.average_number_of_subsentences = TokenCounter.count_number_of_sub_sentences(article)
+
+        article.vector = vector
         return article
 
     @staticmethod
@@ -35,9 +43,9 @@ class VectorCalculator:
             sum_average_number_of_subsentences = sum_average_number_of_subsentences + article.vector.average_number_of_subsentences
             sum_token_count = sum_token_count + article.vector.token_count
             sum_stopword_to_remaining_words_ratio = sum_stopword_to_remaining_words_ratio + article.vector.stopword_to_remaining_words_ratio
-        average_vector = ArgumentVector.init()
-        average_vector.token_count(sum_token_count / articles.size)
-        average_vector.indicator_count(sum_indicator_count / articles.size)
-        average_vector.average_number_of_subsentences(sum_average_number_of_subsentences / articles.size)
-        average_vector.average_sentence_length(sum_average_sentence_length / articles.size)
+        average_vector = ArgumentVector.ArgumentVector()
+        average_vector._token_count = sum_token_count / len(articles)
+        average_vector._indicator_count = sum_indicator_count / len(articles)
+        average_vector._average_number_of_subsentences = sum_average_number_of_subsentences / len(articles)
+        average_vector._average_sentence_length = sum_average_sentence_length / len(articles)
         return average_vector

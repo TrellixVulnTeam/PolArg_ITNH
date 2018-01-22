@@ -19,10 +19,10 @@ class TrainingMode(object):
         averageVector = VectorCalculator.VectorCalculator.calculate_average_vector(articles)
         averageVector._orientation = training_file_orientation
 
-        VectorFileHandler.safe_vector_in_file(averageVector,path_to_vector_file)
+        VectorFileHandler.VectorFileHandler.safe_vector_in_file(averageVector,path_to_vector_file)
 
 
-TrainingMode.execute_training('C:/Users/Paul/Desktop/Vorläufiger Corpus',500,0,0,"C:/Users/Paul/Desktop/VectorFile","generic")
+TrainingMode.execute_training('/Users/christophmaier/Documents/Uni Passau/Text Mining Project/Spiegel-Corpus Modified',500,0,0,"VectorFile","generic")
 
 
 

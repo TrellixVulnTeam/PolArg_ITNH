@@ -19,7 +19,7 @@ class VectorComparator:
         return comparison_results
 
     def build_comparison_result(reference_vector_one, reference_vector_two, article):
-        comparison_result = ComparisonResult.ComparisonResult().__init__()
+        comparison_result = ComparisonResult.ComparisonResult()
         comparison_result._article_reference = article._id
 
         comparison_result._orientation_one_name = reference_vector_one.orientation
@@ -34,7 +34,6 @@ class VectorComparator:
 
     def compare_vectors(reference_vector, comparison_vector):
         similarity = 0.0
-        print("Compare vectors...")
 
         inner_product = reference_vector.indicator_count * comparison_vector.indicator_count
         inner_product += reference_vector.average_sentence_length * comparison_vector.average_sentence_length
@@ -47,7 +46,7 @@ class VectorComparator:
         return math.acos(inner_product / (length_vector1 * length_vector2))
 
     @staticmethod
-    def calculate_vector_length(self, vector):
-        return (vector.indicator_count * vector.indicator_count + vector.average_sentence_length *
+    def calculate_vector_length(vector):
+        return math.sqrt(vector.indicator_count * vector.indicator_count + vector.average_sentence_length *
                 vector.average_sentence_length + vector.average_number_of_subsentences *
-                vector.average_number_of_subsentences + vector.token_count * vector.token_count) ^ 0.5
+                vector.average_number_of_subsentences + vector.token_count * vector.token_count)

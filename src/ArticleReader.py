@@ -43,9 +43,10 @@ class ArticleReader():
             string = ' '.join(words)
             article_list = string.split('SP DER SPIEGEL')
             for article in article_list:
-                addArticle = Article.__init__()
+                addArticle = Article()
+                addArticle.content = article
 
-                articles.append(addArticle.content(article))
+                articles.append(addArticle)
             print(len(article_list))
         """
         for fileid in reader_corpus.fileids():
@@ -53,7 +54,7 @@ class ArticleReader():
                 articles.append(reader_corpus.raw(fileid))
                 print(len(reader_corpus.raw(fileid)))
         """
-        politic = [article for article in articles if article.__contains__('Politik')]
+        politic = [article for article in articles if article.content.__contains__('Politik')]
         print(len(articles))
         print(len(politic))
         return politic
