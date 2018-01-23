@@ -1,14 +1,16 @@
 import codecs
 from nltk.corpus import stopwords
 
+
 class StopwordRemover(object):
     def remove_stopwords_from_article(self, article):
         stop_words = set(stopwords.words('german'))
+        # stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{','}'])
         removed_stopword_list = [i for i in article.tagged_content if i.Word not in stop_words]
         article.tagged_content = removed_stopword_list
-        #removed_stopword_string = ' '.join(removed_stopword_list)
-        #stopword_to_remaining_words_ratio = len(removed_stopword_string)/len(article.content)
 
+    def stopword_to_remaining_words_ratio(self, article):
+        return len(article.tagged_content) / len(article.content)
 
     # @staticmethod
     # def remove_stopwords_from_sentence(self, stopwordlist, sentence):
