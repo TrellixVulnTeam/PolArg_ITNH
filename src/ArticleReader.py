@@ -34,7 +34,10 @@ class ArticleReader():
             string = ' '.join(words)
             article_list = string.split('PMGSPON')
             for article in article_list:
-                articles.append(article)
+                if (len(article.split(' ')) > article_length):
+                    add_article = Article()
+                    add_article.content = article
+                    articles.append(add_article)
             print(len(article_list))
         """
         # an example for the magazine corpus
@@ -43,10 +46,10 @@ class ArticleReader():
             string = ' '.join(words)
             article_list = string.split('SP DER SPIEGEL')
             for article in article_list:
-                addArticle = Article()
-                addArticle.content = article
-
-                articles.append(addArticle)
+                if (len(article.split(' ')) > article_length):
+                    add_article = Article()
+                    add_article.content = article
+                    articles.append(add_article)
             print(len(article_list))
         """
         for fileid in reader_corpus.fileids():
