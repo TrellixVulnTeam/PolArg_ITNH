@@ -1,7 +1,4 @@
-from pattern.text.de import tag
-
 from ArgumentVector import ArgumentVector
-from vector.tagging.TagTuple import TagTuple
 
 
 class Article(object):
@@ -44,10 +41,6 @@ class Article(object):
     @content.setter
     def content(self, val):
         self._content = val
-        # new_list = []
-        # for entry in tag(self._content):
-        #     new_list.append(TagTuple(entry[0], entry[1]))
-        # self._tagged_content = new_list
 
     @property
     def tagged_content(self):
