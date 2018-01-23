@@ -9,9 +9,16 @@ from vector.tagging.TagTuple import TagTuple
 
 
 class Tagger(object):
-	@staticmethod
-	def tag_article(article_to_tag):
-		new_list = []
-		for entry in tag(article_to_tag.content):
-			new_list.append(TagTuple(entry[0], entry[1]))
-		article_to_tag.tagged_content = new_list
+
+    @staticmethod
+    def tag_article(article_to_tag):
+        new_list = []
+        for entry in tag(article_to_tag.content):
+            new_list.append(TagTuple(entry[0], entry[1]))
+        article_to_tag.tagged_content = new_list
+
+    def tag_corpus(corpus):
+        for article in corpus:
+            Tagger.tag_article(article)
+
+        return corpus

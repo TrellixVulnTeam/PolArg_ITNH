@@ -1,6 +1,7 @@
 import ArgumentVector
 import IndicatorReader
 import IndicatorAnalyzer
+from StopwordRemover import StopwordRemover
 from TokenCounter import TokenCounter
 
 
@@ -24,6 +25,7 @@ class VectorCalculator:
         vector.token_count = TokenCounter.count_article_tokens(article)
         vector.average_sentence_length = TokenCounter.count_average_sentence_length(article)
         vector.average_number_of_subsentences = TokenCounter.count_number_of_sub_sentences(article)
+        vector.stopword_to_remaining_words_ratio = StopwordRemover.stopword_to_remaining_words_ratio(article)
 
         article.vector = vector
         return article

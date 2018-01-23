@@ -3,13 +3,20 @@ from nltk.corpus import stopwords
 
 
 class StopwordRemover(object):
-    def remove_stopwords_from_article(self, article):
+
+    def remove_stopwrods_from_corpus(corpus):
+        for article in corpus:
+            StopwordRemover.remove_stopwords_from_article(article)
+
+        return corpus
+
+    def remove_stopwords_from_article(article):
         stop_words = set(stopwords.words('german'))
         # stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{','}'])
         removed_stopword_list = [i for i in article.tagged_content if i.Word not in stop_words]
         article.tagged_content = removed_stopword_list
 
-    def stopword_to_remaining_words_ratio(self, article):
+    def stopword_to_remaining_words_ratio(article):
         return len(article.tagged_content) / len(article.content)
 
     # @staticmethod

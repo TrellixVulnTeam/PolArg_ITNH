@@ -3,6 +3,7 @@ import StopwordFileReader
 import StopwordRemover
 import VectorCalculator
 import VectorFileHandler
+from tagging.Tagger import Tagger
 
 
 class TrainingMode(object):
@@ -11,8 +12,8 @@ class TrainingMode(object):
     def execute_training(path_to_training_files,minimal_article_length, path_to_stopword_file, path_to_indicator_file
                          , path_to_vector_file, training_file_orientation):
         articles = ArticleReader.ArticleReader.read_articles(path_to_training_files, minimal_article_length)
-
-       # articles = StopwordRemover.remove_stopwords_from_corpus(StopwordFileReader.read_stopwordfile(path_to_stopword_file), articles)
+        articles = Tagger.tag_corpus(articles)
+        articles = StopwordRemover.StopwordRemover.remove_stopwrods_from_corpus(articles)
 
         VectorCalculator.VectorCalculator.update_vectors_in_corpus(articles, path_to_indicator_file)
 
