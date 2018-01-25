@@ -7,11 +7,11 @@ from TokenCounter import TokenCounter
 
 class VectorCalculator:
 
-    def update_vectors_in_corpus(corpus, path_to_indicator_file):
+    def update_vectors_in_corpus(corpus, path_to_premise_file, path_to_conjunction_file):
         print("Calculating vectors for corpus")
 
         for article in corpus:
-            VectorCalculator.calculate_vector(article, path_to_indicator_file)
+            VectorCalculator.calculate_vector(article, path_to_premise_file, path_to_conjunction_file)
 
         return corpus
 
