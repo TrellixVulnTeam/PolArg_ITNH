@@ -47,13 +47,14 @@ class ArticleReader():
                         if baby.tag is None:
                             break
                         for titel_liste in baby.iter(tag='titel-liste'):
-                            for titel in titel_liste.iter(tag='title'):
-                                add_article.titel = titel
+                            for title in titel_liste.iter(tag='titel'):
+                                add_article.title = title
                         article_text = ""
                         for text in baby.iter(tag='absatz'):
                             if text.text is None:
                                 break
                             if text is not None:
+                                print('hallo')
                                 article_text += text.text
                         if len(article_text) > article_length:
                             add_article.content = article_text
@@ -65,8 +66,8 @@ class ArticleReader():
                 if article.content.__contains__('Politik'):
                     politic.append(article)
         """
-        # print(len(articles))
-        print(len(politic))
+        print(len(articles))
+        # print(len(politic))
         return articles
         # return politik
 
