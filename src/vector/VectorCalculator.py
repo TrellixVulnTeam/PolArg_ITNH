@@ -7,18 +7,19 @@ from TokenCounter import TokenCounter
 
 class VectorCalculator:
 
-    def update_vectors_in_corpus(corpus, path_to_indicator_file):
+    def update_vectors_in_corpus(corpus, path_to_premise_file, path_to_conjunction_file):
         print("Calculating vectors for corpus")
 
         for article in corpus:
-            VectorCalculator.calculate_vector(article, path_to_indicator_file)
+            VectorCalculator.calculate_vector(article, path_to_premise_file, path_to_conjunction_file)
 
         return corpus
 
     @staticmethod
-    def calculate_vector(article, path_to_indicator_file):
-        indicator_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_indicator_file)
-        indicator_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(indicator_list, article)
+    def calculate_vector(article, path_to_premise_file, path_to_conjunction_file):
+        premise_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_premise_file)
+        conjunction_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_conjunction_file)
+        indicator_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(premise_list, conjunction_list, article)
 
         vector = ArgumentVector.ArgumentVector()
 
