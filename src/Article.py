@@ -9,6 +9,7 @@ class Article(object):
         self._vector = ArgumentVector()
         self._vector.__init__()
         self._tagged_content = None
+        self._contains_argumentation = False
 
     @property
     def id(self):
