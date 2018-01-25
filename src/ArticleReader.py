@@ -54,7 +54,6 @@ class ArticleReader():
                             if text.text is None:
                                 break
                             if text is not None:
-                                print('hallo')
                                 article_text += text.text
                         if len(article_text) > article_length:
                             add_article.content = article_text

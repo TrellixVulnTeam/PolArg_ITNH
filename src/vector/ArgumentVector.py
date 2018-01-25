@@ -6,6 +6,8 @@ class ArgumentVector(object):
         self._token_count = 0
         self._stopword_to_remaining_words_ratio = 0
         self._orientation = ''
+        self._left_words_counter = 0
+        self._right_words_counter = 0
 
     @property
     def indicator_count(self):
@@ -54,3 +56,19 @@ class ArgumentVector(object):
     @orientation.setter
     def orientation(self, val):
         self._orientation = val
+
+    @property
+    def left_words_counter(self):
+        return self.left_words_counter
+
+    @left_words_counter
+    def left_words_counter(self, val):
+        self._left_words_counter = val
+
+    @property
+    def right_words_counter(self):
+        return self.right_words_counter
+
+    @right_words_counter
+    def right_words_counter(self, val):
+        self._right_words_counter = val
