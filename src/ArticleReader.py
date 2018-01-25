@@ -1,13 +1,11 @@
 
+from nltk.corpus.reader import XMLCorpusReader
 from glob import glob
-from nltk.corpus import XMLCorpusReader
-from nltk.corpus import PlaintextCorpusReader
-# from xml import etree as ET
 from lxml import etree as ET
+from Article import Article
 
 #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
 #von Sätzen im Article Objekt zu speichern?
-from Article import Article
 
 
 class ArticleReader():
@@ -26,29 +24,19 @@ class ArticleReader():
 
         reader_online = XMLCorpusReader(loc_corpus, years_online)
         reader_magazine = XMLCorpusReader(loc_corpus, years_magazine)
-        # reader_corpus = PlaintextCorpusReader(loc_corpus + '/Magazin/Corpus-Magazin', '.*', encoding='utf-16')
+        fileid_list = []
+        for fileid in reader_magazine.fileids():
+            fileid_list.append(fileid)
+        for fileid in reader_online.fileids():
+            fileid_list.append(fileid)
 
         articles = []
-        """
-        for fileid in reader_online.fileids():
-            words = reader_online.words(fileid)
-            string = ' '.join(words)
-            article_list = string.split('PMGSPON')
-            for article in article_list:
-                if (len(article.split(' ')) > article_length):
-                    add_article = Article()
-                    add_article.content = article
-                    articles.append(add_article)
-            print(len(article_list))
-        """
-        # an example for the magazine corpus
-        i = 1
-        for fileid in reader_magazine.fileids():
+
+        for fileid in fileid_list:
             parser = ET.XMLParser(recover=True)
             tree = ET.parse(fileid, parser=parser)
             for elem in tree.iter(tag='artikel'):
                 add_article = Article()
-                i += 1
                 for child in elem.iter(tag='metadaten'):
                     for id in child.iter(tag='artikel-id'):
                         add_article.id = id
@@ -69,17 +57,17 @@ class ArticleReader():
                         if len(article_text) > article_length:
                             add_article.content = article_text
                 articles.append(add_article)
+        politic = []
         """
-        for fileid in reader_corpus.fileids():
-            if len(reader_corpus.raw(fileid)) > article_length:
-                articles.append(reader_corpus.raw(fileid))
-                print(len(reader_corpus.raw(fileid)))
+        for article in articles:
+            if article.content is not None:
+                if article.content.__contains__('Politik'):
+                    politic.append(article)
         """
-        # politic = [article for article in articles if article.content.__contains__('Politik')]
-        print(len(articles))
-        # print(len(politic))
-        # return politic
+        # print(len(articles))
+        print(len(politic))
         return articles
+        # return politik
 
     def read_articles_learn(loc_corpus, article_length):
 
