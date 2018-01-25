@@ -1,10 +1,1 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\sl300\partightenfactor0
-
-\f0\fs26\fsmilli13333 \cf2 \expnd0\expndtw0\kerning0
-folglich \'96 deshalb \'96 also \'96 ergo \'96 infolgedessen \'96 daher \'96 eben - und so \'85nat\'fcrlich - daraus folgt, dass - daraus ergibt sich, dass - es ist zu folgern, dass \'96 muss - kann es gar nicht anders sein, als - zwingt zu der Annahme - daraus ergibt sich der Schluss, dass - das f\'fchrt uns dazu, dass\'a0}
+folglich - deshalb - also - ergo - infolgedessen - daher - eben - und so - natürlich - daraus folgt, dass - daraus ergibt sich, dass - es ist zu folgern, dass - muss - kann es gar nicht anders sein, als - zwingt zu der Annahme - daraus ergibt sich der Schluss, dass - das führt uns dazu, dass
