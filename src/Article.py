@@ -10,6 +10,7 @@ class Article(object):
         self._vector.__init__()
         self._tagged_content = None
         self._contains_argumentation = False
+        self._keywords = None
 
     @property
     def id(self):
@@ -50,3 +51,11 @@ class Article(object):
     @tagged_content.setter
     def tagged_content(self, val):
         self._tagged_content = val
+
+    @property
+    def keywords(self):
+        return self._content
+
+    @keywords.setter
+    def keywords(self, val):
+        self._keywords = val
