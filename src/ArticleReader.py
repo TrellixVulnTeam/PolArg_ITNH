@@ -46,14 +46,15 @@ class ArticleReader():
                     for baby in child.iter(tag='text'):
                         if baby.tag is None:
                             break
+                        for titel_liste in baby.iter(tag='titel-liste'):
+                            for titel in titel_liste.iter(tag='title'):
+                                add_article.titel = titel
                         article_text = ""
                         for text in baby.iter(tag='absatz'):
                             if text.text is None:
                                 break
                             if text is not None:
                                 article_text += text.text
-
-                            # print(len(string))
                         if len(article_text) > article_length:
                             add_article.content = article_text
                 articles.append(add_article)
