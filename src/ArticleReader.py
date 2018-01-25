@@ -2,8 +2,8 @@
 from glob import glob
 from nltk.corpus import XMLCorpusReader
 from nltk.corpus import PlaintextCorpusReader
-import xml.etree.ElementTree as ET
-
+# from xml import etree as ET
+from lxml import etree as ET
 
 #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
 #von Sätzen im Article Objekt zu speichern?
@@ -44,7 +44,8 @@ class ArticleReader():
         # an example for the magazine corpus
         i = 1
         for fileid in reader_magazine.fileids():
-            tree = ET.ElementTree(file=fileid)
+            parser = ET.XMLParser(recover=True)
+            tree = ET.parse(fileid, parser=parser)
             for elem in tree.iter(tag='artikel'):
                 add_article = Article()
                 i += 1
