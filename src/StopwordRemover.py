@@ -12,7 +12,7 @@ class StopwordRemover(object):
 
     def remove_stopwords_from_article(article):
         stop_words = set(stopwords.words('german'))
-        # stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{','}'])
+        stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{','}'])
         removed_stopword_list = [i for i in article.tagged_content if i.Word not in stop_words]
         article.tagged_content = removed_stopword_list
 

@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -- coding: utf-8 --
 
-import codecs
-from collections import Counter
 
 from pattern.de import tag
 from vector.tagging.TagTuple import TagTuple
+from pattern.vector import Document
 
 
 class Tagger(object):
@@ -20,5 +19,17 @@ class Tagger(object):
     def tag_corpus(corpus):
         for article in corpus:
             Tagger.tag_article(article)
+
+        return corpus
+
+    def get_keywords_article(article):
+        tagged_content_words = ([i.Word for i in article.tagged_content if i.Tag.startswith('NN')])
+        d = Document(tagged_content_words)
+        k = d.keywords(top=5)
+        article.keywords = k
+
+    def get_keyword_corpus(corpus):
+        for article in corpus:
+            Tagger.get_keywords_article(article)
 
         return corpus
