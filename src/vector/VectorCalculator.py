@@ -24,12 +24,11 @@ class VectorCalculator:
     @staticmethod
     def calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list, indicator_threshold):
 
-        premise_conclusion_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(premise_list, conjunction_list, indicator_threshold, article)
-        paratax_hypotax_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences(paratax_list, hypotax_list, indicator_threshold, article)
+        premise_conclusion_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(premise_list,conjunction_list, article)
+        paratax_hypotax_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(paratax_list,hypotax_list, article)
 
-        indicator_count = premise_conclusion_count + paratax_hypotax_count;
 
-        if indicator_count < indicator_threshold:
+        if premise_conclusion_count + paratax_hypotax_count < indicator_threshold:
             return
 
         article._contains_argumentation = True
