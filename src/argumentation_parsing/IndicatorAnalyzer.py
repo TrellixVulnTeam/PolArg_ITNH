@@ -6,7 +6,7 @@ class IndicatorAnalyzer(object):
 
     @staticmethod
     def analyze_argumentation_of_succesive_sentences(premise_list, conjunction_list, article):
-        indicator_occurences = 0
+        succesive_occurences = 0
 
         sentences = article.content.split(".")
         lastSentence = ""
@@ -15,30 +15,22 @@ class IndicatorAnalyzer(object):
             sentenceList = IndicatorAnalyzer.cleanListFromUnwantedStrings(sentence.split(" "))
             sentenceList = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(sentenceList)
 
-            premise_list = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(premise_list)
-            conjunction_list = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(conjunction_list)
-
             if lastSentence is not "":
                 for word in sentenceList:
                     for conjunction in conjunction_list:
                         if conjunction == word:
                             article._contains_argumentation = True
-                            indicator_occurences = indicator_occurences + 1
+                            succesive_occurences = succesive_occurences + 1
 
             for word in sentenceList:
                 for premise in premise_list:
                     if premise == word:
-                        indicator_occurences = indicator_occurences + 1
                         lastSentence = sentence
 
-                for conjunction in conjunction_list:
-                    if conjunction == word:
-                        indicator_occurences = indicator_occurences + 1
-
-        return indicator_occurences
+        return succesive_occurences
 
     @staticmethod
-    def analyze_indicator_occurences(indicator_list_one, indicator_list_two, indicator_threshold, article):
+    def analyze_indicator_occurences_of_two_lists(indicator_list_one, indicator_list_two, article):
         indicator_occurences = 0
 
         sentences = article.content.split(".")
@@ -47,9 +39,6 @@ class IndicatorAnalyzer(object):
         for sentence in sentences:
             sentenceList = IndicatorAnalyzer.cleanListFromUnwantedStrings(sentence.split(" "))
             sentenceList = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(sentenceList)
-
-            indicator_list_one = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(indicator_list_one)
-            indicator_list_two = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(indicator_list_two)
 
             for word in sentenceList:
                 for premise in indicator_list_one:
@@ -63,6 +52,23 @@ class IndicatorAnalyzer(object):
 
         return indicator_occurences
 
+    @staticmethod
+    def analyze_indicator_occurences_of_single_list(indicator_list_one, article):
+        indicator_occurences = 0
+
+        sentences = article.content.split(".")
+
+        for sentence in sentences:
+            sentenceList = IndicatorAnalyzer.cleanListFromUnwantedStrings(sentence.split(" "))
+            sentenceList = IndicatorAnalyzer.cleanSentenceListFromWhitespaces(sentenceList)
+
+            for word in sentenceList:
+                for premise in indicator_list_one:
+                    if premise == word:
+                        indicator_occurences = indicator_occurences + 1
+
+
+        return indicator_occurences
 
     def cleanListFromUnwantedStrings(sentence):
         unwanted = list()
