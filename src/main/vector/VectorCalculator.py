@@ -1,8 +1,8 @@
-import ArgumentVector
-import IndicatorReader
-import IndicatorAnalyzer
+from main.vector import ArgumentVector
+from main.argumentation_parsing import IndicatorReader
+from main.argumentation_parsing import IndicatorAnalyzer
 from main.StopwordRemover import StopwordRemover
-from TokenCounter import TokenCounter
+from main.argumentation_parsing.TokenCounter import TokenCounter
 
 
 class VectorCalculator:

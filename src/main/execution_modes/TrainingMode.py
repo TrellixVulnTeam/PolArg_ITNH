@@ -2,9 +2,9 @@ from gevent import os
 
 from main import ArticleReader, StopwordRemover, CorpusCleaner
 
-import VectorCalculator
-import VectorFileHandler
-from tagging import Tagger
+from main.vector import VectorCalculator
+from main.vector import VectorFileHandler
+from main.vector.tagging import Tagger
 
 
 class TrainingMode(object):
@@ -44,7 +44,7 @@ right_orientation_path = os.path.join(os.path.dirname(__file__), 'Rechtsausgeric
 
 
 TrainingMode.execute_training(
-    '/Users/christophmaier/Documents/Uni Passau/Text Mining Project/files/Spiegel-Corpus Modified',
+    '/Users/paul/Desktop/Spiegel-Corpus',
     500,
     premise_path,
     conclusion_path,
