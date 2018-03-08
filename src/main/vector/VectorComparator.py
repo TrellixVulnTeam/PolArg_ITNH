@@ -1,7 +1,7 @@
 import math
 
 import VectorFileHandler
-import ComparisonResult
+from main import ComparisonResult
 
 
 class VectorComparator:

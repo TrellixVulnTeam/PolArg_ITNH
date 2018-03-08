@@ -3,7 +3,7 @@
 
 
 from pattern.de import tag
-from vector.tagging.TagTuple import TagTuple
+from tagging import TagTuple
 from pattern.vector import Document
 
 

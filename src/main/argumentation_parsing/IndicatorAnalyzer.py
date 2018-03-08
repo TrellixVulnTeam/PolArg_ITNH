@@ -1,7 +1,3 @@
-import IndicatorReader
-from Article import Article
-
-
 class IndicatorAnalyzer(object):
 
     @staticmethod

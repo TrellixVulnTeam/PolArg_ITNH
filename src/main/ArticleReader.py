@@ -2,7 +2,7 @@
 from nltk.corpus.reader import XMLCorpusReader
 from glob import glob
 from lxml import etree as ET
-from Article import Article
+from main.Article import Article
 
 #Anmerkung C: Pfade beim Methodenaufruf übergeben. Evtl sinnvoll die Artikel in Sätze zu splitten und eine Liste
 #von Sätzen im Article Objekt zu speichern?

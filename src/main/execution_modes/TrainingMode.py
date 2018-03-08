@@ -1,10 +1,8 @@
-import ArticleReader
-import CorpusCleaner
-import StopwordRemover
+from main import ArticleReader, StopwordRemover, CorpusCleaner
 
 import VectorCalculator
 import VectorFileHandler
-from tagging.Tagger import Tagger
+from tagging import Tagger
 
 
 class TrainingMode(object):

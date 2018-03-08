@@ -1,13 +1,15 @@
 import ArgumentVector
 import IndicatorReader
 import IndicatorAnalyzer
-from StopwordRemover import StopwordRemover
+from main.StopwordRemover import StopwordRemover
 from TokenCounter import TokenCounter
 
 
 class VectorCalculator:
 
-    def update_vectors_in_corpus(corpus, path_to_premise_file, path_to_conjunction_file, path_to_paratax_file, path_to_hypotax_file, path_to_left_orientation_file, path_to_right_orientation_file, indicator_threshold):
+    def update_vectors_in_corpus(corpus, path_to_premise_file, path_to_conjunction_file, path_to_paratax_file,
+                                 path_to_hypotax_file, path_to_left_orientation_file, path_to_right_orientation_file,
+                                 indicator_threshold):
         print("Calculating vectors for corpus")
 
         premise_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_premise_file)
@@ -20,19 +22,22 @@ class VectorCalculator:
         right_orientation_list = IndicatorReader.IndicatorReader.read_indicator_file(path_to_right_orientation_file)
 
         for article in corpus:
-            VectorCalculator.calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list,left_orientation_list, right_orientation_list, indicator_threshold)
+            VectorCalculator.calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list,
+                                              left_orientation_list, right_orientation_list, indicator_threshold)
 
         return corpus
 
     @staticmethod
-    def calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list, left_orientation_indicators, right_orientation_indicators, indicator_threshold):
+    def calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list,
+                         left_orientation_indicators, right_orientation_indicators, indicator_threshold):
 
-        premise_conclusion_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(premise_list,conjunction_list, article)
-        paratax_hypotax_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(paratax_list,hypotax_list, article)
-
+        premise_conclusion_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(
+            premise_list, conjunction_list, article)
+        paratax_hypotax_count = IndicatorAnalyzer.IndicatorAnalyzer.analyze_argumentation_of_succesive_sentences(
+            paratax_list, hypotax_list, article)
 
         if premise_conclusion_count + paratax_hypotax_count < indicator_threshold and article._contains_argumentation is False:
-                return
+            return
 
         article._contains_argumentation = True
 
@@ -41,11 +46,13 @@ class VectorCalculator:
         vector.token_count = TokenCounter.count_article_tokens(article)
         vector.average_sentence_length = TokenCounter.count_average_sentence_length(article)
         vector.average_number_of_subsentences = TokenCounter.count_number_of_sub_sentences(article)
-        #vector.stopword_to_remaining_words_ratio = StopwordRemover.stopword_to_remaining_words_ratio(article)
+        vector.stopword_to_remaining_words_ratio = StopwordRemover.stopword_to_remaining_words_ratio(article)
         vector.premise_conclusion_count = premise_conclusion_count
         vector.paratax_hypotax_count = paratax_hypotax_count
-        vector.left_words_counter = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences_of_single_list(left_orientation_indicators, article)
-        vector.right_words_counter = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences_of_single_list(right_orientation_indicators, article)
+        vector.left_words_counter = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences_of_single_list(
+            left_orientation_indicators, article)
+        vector.right_words_counter = IndicatorAnalyzer.IndicatorAnalyzer.analyze_indicator_occurences_of_single_list(
+            right_orientation_indicators, article)
 
         article.vector = vector
         return article
