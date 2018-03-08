@@ -1,3 +1,5 @@
+from gevent import os
+
 from main import ArticleReader, StopwordRemover, CorpusCleaner
 
 import VectorCalculator
@@ -32,16 +34,24 @@ class TrainingMode(object):
 
         VectorFileHandler.VectorFileHandler.safe_vector_in_file(averageVector, path_to_vector_file)
 
+premise_path = os.path.join(os.path.dirname(__file__), 'premise_file.txt')
+conclusion_path = os.path.join(os.path.dirname(__file__), 'conclusion_file.txt')
+paratax_path = os.path.join(os.path.dirname(__file__), 'paratax_file.txt')
+hypotax_path = os.path.join(os.path.dirname(__file__), 'hypotax_file.txt')
+left_orientation_path = os.path.join(os.path.dirname(__file__), 'Linksausgerichtet.txt')
+right_orientation_path = os.path.join(os.path.dirname(__file__), 'Rechtsausgerichtet.txt')
+
+
 
 TrainingMode.execute_training(
     '/Users/christophmaier/Documents/Uni Passau/Text Mining Project/files/Spiegel-Corpus Modified',
     500,
-    "/Users/christophmaier/PycharmProjects/PolArg/premise_file.txt",
-    "/Users/christophmaier/PycharmProjects/PolArg/conclusion_file.txt",
-    '/Users/christophmaier/PycharmProjects/PolArg/paratax_file.txt',
-    "/Users/christophmaier/PycharmProjects/PolArg/hypotax_file.txt",
-    "/Users/christophmaier/PycharmProjects/PolArg/Linksausgerichtet.txt",
-    "/Users/christophmaier/PycharmProjects/PolArg/Rechtsausgerichtet.txt",
+    premise_path,
+    conclusion_path,
+    paratax_path,
+    hypotax_path,
+    left_orientation_path,
+    right_orientation_path,
     1,
     'VectorFile',
     'generic')
