@@ -1,4 +1,5 @@
 class ArgumentVector(object):
+
     def __init__(self):
         self.indicator_count = 0
         self.average_sentence_length = 0
@@ -61,7 +62,7 @@ class ArgumentVector(object):
 
     @property
     def left_words_counter(self):
-        return self.left_words_counter
+        return self._left_words_counter
 
     @left_words_counter.setter
     def left_words_counter(self, val):
@@ -90,6 +91,31 @@ class ArgumentVector(object):
     @paratax_hypotax_count.setter
     def paratax_hypotax_count(self, val):
         self._paratax_hypotax_count = val
+
+    def equals(self, other):
+        if other is None:
+            raise ("other must not be null!")
+
+        if self.average_sentence_length != other.average_sentence_length:
+            return False
+        if self.average_number_of_subsentences != other.average_number_of_subsentences:
+            return False
+        if self.stopword_to_remaining_words_ratio != other.stopword_to_remaining_words_ratio:
+            return False
+        if self.indicator_count != other.indicator_count:
+            return False
+        if self.left_words_counter != other.left_words_counter:
+            return False
+        if self.right_words_counter != other.right_words_counter:
+            return False
+        if self.paratax_hypotax_count != other.paratax_hypotax_count:
+            return False
+        if self.premise_conclusion_count != other.premise_conclusion_count:
+            return False
+        if self.token_count != other.token_count:
+            return False
+
+        return True
 
 
 vector = ArgumentVector()

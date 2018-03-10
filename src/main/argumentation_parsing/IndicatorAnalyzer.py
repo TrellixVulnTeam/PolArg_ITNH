@@ -66,6 +66,7 @@ class IndicatorAnalyzer(object):
 
         return indicator_occurences
 
+    @staticmethod
     def cleanListFromUnwantedStrings(sentence):
         unwanted = list()
         unwanted.append('\n')
@@ -73,9 +74,11 @@ class IndicatorAnalyzer(object):
 
         return [word for word in sentence if word not in unwanted]
 
+    @staticmethod
     def cleanSentenceListFromWhitespaces(sentence):
         cleanedSentence = list()
         for word in sentence:
-            cleanedSentence.append(word.replace(' ', ''))
+            if word != ' ':
+                cleanedSentence.append(word)
 
         return cleanedSentence
