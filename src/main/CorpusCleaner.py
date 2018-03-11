@@ -1,6 +1,7 @@
-class ArgumentVector():
+class CorpusCleaner():
 
-    def cleanCorpusFromEmptyArticles(corpus):
+    @staticmethod
+    def clean_corpus_from_empty_articles(corpus):
         cleaned_corpus = list()
 
         for article in corpus:
@@ -10,6 +11,7 @@ class ArgumentVector():
         return cleaned_corpus
 
 
+    @staticmethod
     def cleanCorpusFromNonArgumentationArticles(corpus):
         cleaned_corpus = list()
 
