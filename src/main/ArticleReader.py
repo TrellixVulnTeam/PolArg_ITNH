@@ -37,11 +37,11 @@ class ArticleReader():
             tree = ET.parse(fileid, parser=parser)
             for elem in tree.iter(tag='artikel'):
                 add_article = Article()
-                """
+
                 for child in elem.iter(tag='metadaten'):
                     for id in child.iter(tag='artikel-id'):
-                        add_article.id = id
-                """
+                        add_article.id = id.text
+
                 for child in elem.iter(tag='inhalt'):
                     if child.tag is None:
                         break
