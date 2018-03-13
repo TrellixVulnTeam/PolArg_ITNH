@@ -65,6 +65,9 @@ class VectorCalculator:
         sum_average_number_of_subsentences = 0
         sum_token_count = 0
         sum_stopword_to_remaining_words_ratio = 0
+        sum_left_words_counter = 0
+        sum_right_words_counter = 0
+        sum_paratax_hypotax_counter = 0
 
         for article in articles:
             sum_indicator_count = sum_indicator_count + article.vector.indicator_count
@@ -72,9 +75,17 @@ class VectorCalculator:
             sum_average_number_of_subsentences = sum_average_number_of_subsentences + article.vector.average_number_of_subsentences
             sum_token_count = sum_token_count + article.vector.token_count
             sum_stopword_to_remaining_words_ratio = sum_stopword_to_remaining_words_ratio + article.vector.stopword_to_remaining_words_ratio
+            sum_left_words_counter = sum_left_words_counter  + article.vector.left_words_counter
+            sum_right_words_counter = sum_right_words_counter + article.vector.right_words_counter
+            sum_paratax_hypotax_counter = sum_paratax_hypotax_counter + article.vector.paratax_hypotax_count
+
         average_vector = ArgumentVector.ArgumentVector()
         average_vector._token_count = sum_token_count / len(articles)
         average_vector._indicator_count = sum_indicator_count / len(articles)
         average_vector._average_number_of_subsentences = sum_average_number_of_subsentences / len(articles)
         average_vector._average_sentence_length = sum_average_sentence_length / len(articles)
+        average_vector.left_words_counter = sum_left_words_counter / len(articles)
+        average_vector.right_words_counter = sum_right_words_counter / len(articles)
+        average_vector.paratax_hypotax_count = sum_paratax_hypotax_counter / len(articles)
+
         return average_vector
