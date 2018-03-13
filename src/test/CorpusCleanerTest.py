@@ -30,7 +30,7 @@ class CorpusCleanerTest(unittest.TestCase):
 
 
     def test_clean_corpus_from_non_argumentation_articles(self):
-        cleaned_corpus = CorpusCleaner.CorpusCleaner.cleanCorpusFromNonArgumentationArticles(self.corpus_to_clean)
+        cleaned_corpus = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(self.corpus_to_clean)
 
         self.assertEqual(self.cleand_from_non_argumentation_articles_corpus,cleaned_corpus)
 

@@ -15,7 +15,9 @@ class AnalyzationMode(object):
                 path_to_right_orientation_file,
                 indicator_threshold,
                 path_to_training_file_one,
-                path_to_training_file_two):
+                training_file_one_orientation,
+                path_to_training_file_two,
+                training_file_two_orientation):
         corpus = ArticleReader.ArticleReader.read_articles(path_to_analyzation_files, minimal_article_length)
 
         corpus = CorpusCleaner.CorpusCleaner.clean_corpus_from_empty_articles(corpus)
@@ -29,6 +31,8 @@ class AnalyzationMode(object):
                                                                    path_to_left_orientation_file,
                                                                    path_to_right_orientation_file,
                                                                    indicator_threshold)
+
+        corpus = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(corpus)
 
         comparison_results = VectorComparator.VectorComparator.compare_corpus_vectors_to_training_vectors(
             corpus,

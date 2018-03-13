@@ -23,7 +23,7 @@ class TrainingMode(object):
         articles = StopwordRemover.StopwordRemover.remove_stopwrods_from_corpus(articles)
 
         for article in articles:
-            article.content.tolower()
+            article.content.lower()
 
         VectorCalculator.VectorCalculator.update_vectors_in_corpus(articles, path_to_premise_file,
                                                                    path_to_conjunction_file,
@@ -32,7 +32,7 @@ class TrainingMode(object):
                                                                    path_to_left_orientation_file,
                                                                    path_to_right_orientation_file,
                                                                    indicator_threshold)
-        articles = CorpusCleaner.CorpusCleaner.cleanCorpusFromNonArgumentationArticles(articles)
+        articles = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(articles)
 
         averageVector = VectorCalculator.VectorCalculator.calculate_average_vector(articles)
         averageVector._orientation = training_file_orientation
