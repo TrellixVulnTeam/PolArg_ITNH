@@ -22,6 +22,9 @@ class TrainingMode(object):
         articles = Tagger.Tagger.tag_corpus(articles)
         articles = StopwordRemover.StopwordRemover.remove_stopwrods_from_corpus(articles)
 
+        for article in articles:
+            article.content.tolower()
+
         VectorCalculator.VectorCalculator.update_vectors_in_corpus(articles, path_to_premise_file,
                                                                    path_to_conjunction_file,
                                                                    path_to_paratax_file,
@@ -29,23 +32,24 @@ class TrainingMode(object):
                                                                    path_to_left_orientation_file,
                                                                    path_to_right_orientation_file,
                                                                    indicator_threshold)
-        articles = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(articles)
+        articles = CorpusCleaner.CorpusCleaner.cleanCorpusFromNonArgumentationArticles(articles)
 
         averageVector = VectorCalculator.VectorCalculator.calculate_average_vector(articles)
         averageVector._orientation = training_file_orientation
 
         VectorFileHandler.VectorFileHandler.safe_vector_in_file(averageVector, path_to_vector_file)
 
-dir = os.path.dirname
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = ROOT_DIR[:-24]
 
-premise_path = os.path.join(os.path.dirname(__file__), 'premise_file.txt')
-conclusion_path = os.path.join(os.path.dirname(__file__), 'conclusion_file.txt')
-paratax_path = os.path.join(os.path.dirname(__file__), 'paratax_file.txt')
-hypotax_path = os.path.join(os.path.dirname(__file__), 'hypotax_file.txt')
-left_orientation_path = os.path.join(os.path.dirname(__file__), 'Linksausgerichtet.txt')
-right_orientation_path = os.path.join(os.path.dirname(__file__), 'Rechtsausgerichtet.txt')
+premise_path = ROOT_DIR + 'resources/premise_file.txt'
+conclusion_path = ROOT_DIR + 'resources/conclusion_file.txt'
+paratax_path = ROOT_DIR + 'resources/paratax_file.txt'
+hypotax_path = ROOT_DIR + 'resources/hypotax_file.txt'
+left_orientation_path = ROOT_DIR + 'resources/Linksausgerichtet.txt'
+right_orientation_path = ROOT_DIR + 'resources/Rechtsausgerichtet.txt'
 
-test_corpus_path = dirname(premise_path) + "/Test Corpus"
+test_corpus_path = ROOT_DIR +  "resources/Test Corpus"
 
 
 TrainingMode.execute_training(
