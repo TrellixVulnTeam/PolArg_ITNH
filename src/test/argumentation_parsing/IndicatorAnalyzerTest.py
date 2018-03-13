@@ -1,6 +1,6 @@
 import unittest
 
-from IndicatorAnalyzer import IndicatorAnalyzer
+from main.argumentation_parsing import IndicatorAnalyzer
 from main.Article import Article
 
 class IndicatorAnalyzerTest(unittest.TestCase):
@@ -8,7 +8,7 @@ class IndicatorAnalyzerTest(unittest.TestCase):
     expected_indicator_occurences = 1
     expected_indicator_occurences_of_two_list_analyzation = 2
 
-    analyzer = IndicatorAnalyzer()
+    analyzer = IndicatorAnalyzer.IndicatorAnalyzer()
     premise_list = ["weil","da","denn","als","ja","doch"];
     conjunction_list = ["folglich", "deshalb", "also","ergo","infolgedessen","daher","eben","und so","natürlich"];
     article = Article();
