@@ -1,3 +1,5 @@
+from os.path import dirname
+
 from gevent import os
 
 from main import ArticleReader, StopwordRemover, CorpusCleaner
@@ -34,6 +36,8 @@ class TrainingMode(object):
 
         VectorFileHandler.VectorFileHandler.safe_vector_in_file(averageVector, path_to_vector_file)
 
+dir = os.path.dirname
+
 premise_path = os.path.join(os.path.dirname(__file__), 'premise_file.txt')
 conclusion_path = os.path.join(os.path.dirname(__file__), 'conclusion_file.txt')
 paratax_path = os.path.join(os.path.dirname(__file__), 'paratax_file.txt')
@@ -41,10 +45,11 @@ hypotax_path = os.path.join(os.path.dirname(__file__), 'hypotax_file.txt')
 left_orientation_path = os.path.join(os.path.dirname(__file__), 'Linksausgerichtet.txt')
 right_orientation_path = os.path.join(os.path.dirname(__file__), 'Rechtsausgerichtet.txt')
 
+test_corpus_path = dirname(premise_path) + "/Test Corpus"
 
 
 TrainingMode.execute_training(
-    '/Users/PaulNikolaus/Desktop/Test Corpus',
+    test_corpus_path,
     500,
     premise_path,
     conclusion_path,
