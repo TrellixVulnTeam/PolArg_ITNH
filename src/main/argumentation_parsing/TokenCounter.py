@@ -13,7 +13,6 @@ class TokenCounter:
         sentence_list = article_to_count.content.split('. ')
         # counts the number of sentences
         number_of_sentences = len(sentence_list)
-        print(number_of_sentences)
         # adds the sentence lengths
         word_counter = 0
         for sentence in sentence_list:
