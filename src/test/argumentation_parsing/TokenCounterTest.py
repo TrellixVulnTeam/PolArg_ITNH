@@ -1,6 +1,6 @@
 import unittest
 
-import TokenCounter
+from main.argumentation_parsing import TokenCounter
 from main.Article import Article
 
 
@@ -8,14 +8,14 @@ class IndicatorAnalyzerTest(unittest.TestCase):
 
     article = Article();
     article.content = "Das ist der erste Satz indem kein Indicator vorkommt. Das ist der zweite Satz in dem der Indicator da vorkommt." \
-                      "Das ist der dritte Satz indem der Indicator also vorkommt."
+                      " Das ist der dritte Satz indem der Indicator also vorkommt."
 
-    expected_token_count = 32
+    expected_token_count = 30
     expected_average_sentence_length = 10
     expected_number_of_sub_sentences = 0;
 
     def test_count_article_tokens(self):
-        article_token_count = TokenCounter.count_article_tokens(self.article)
+        article_token_count = TokenCounter.TokenCounter.count_article_tokens(self.article)
 
         self.assertEqual(self.expected_token_count,article_token_count)
 
