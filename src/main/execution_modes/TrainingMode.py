@@ -16,8 +16,8 @@ class TrainingMode(object):
                          indicator_threshold,
                          path_to_vector_file, training_file_orientation):
         articles = ArticleReader.ArticleReader.read_articles(path_to_training_files, minimal_article_length)
-        articles = CorpusCleaner.ArgumentVector.cleanCorpusFromEmptyArticles(articles)
-        articles = Tagger.tag_corpus(articles)
+        articles = CorpusCleaner.CorpusCleaner.clean_corpus_from_empty_articles(articles)
+        articles = Tagger.Tagger.tag_corpus(articles)
         articles = StopwordRemover.StopwordRemover.remove_stopwrods_from_corpus(articles)
 
         VectorCalculator.VectorCalculator.update_vectors_in_corpus(articles, path_to_premise_file,
@@ -27,7 +27,7 @@ class TrainingMode(object):
                                                                    path_to_left_orientation_file,
                                                                    path_to_right_orientation_file,
                                                                    indicator_threshold)
-        articles = CorpusCleaner.ArgumentVector.cleanCorpusFromNonArgumentationArticles(articles)
+        articles = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(articles)
 
         averageVector = VectorCalculator.VectorCalculator.calculate_average_vector(articles)
         averageVector._orientation = training_file_orientation
@@ -44,7 +44,7 @@ right_orientation_path = os.path.join(os.path.dirname(__file__), 'Rechtsausgeric
 
 
 TrainingMode.execute_training(
-    '/Users/paul/Desktop/Spiegel-Corpus',
+    '/Users/PaulNikolaus/Desktop/Test Corpus',
     500,
     premise_path,
     conclusion_path,

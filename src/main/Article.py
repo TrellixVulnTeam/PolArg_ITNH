@@ -1,4 +1,4 @@
-from ArgumentVector import ArgumentVector
+from main.vector.ArgumentVector import ArgumentVector
 
 
 class Article(object):
