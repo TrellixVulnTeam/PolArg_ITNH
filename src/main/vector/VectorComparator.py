@@ -20,7 +20,7 @@ class VectorComparator:
 
     def build_comparison_result(reference_vector_one, reference_vector_two, article):
         comparison_result = ComparisonResult.ComparisonResult()
-        comparison_result._article_reference = article.title
+        comparison_result._article_reference = article.id
 
         comparison_result._orientation_one_name = reference_vector_one.orientation
         comparison_result._orientation_one_similarity = VectorComparator.compare_vectors(reference_vector_one,
