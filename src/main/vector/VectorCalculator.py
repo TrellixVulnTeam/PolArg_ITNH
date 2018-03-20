@@ -89,3 +89,104 @@ class VectorCalculator:
         average_vector.paratax_hypotax_count = sum_paratax_hypotax_counter / len(articles)
 
         return average_vector
+
+
+    @staticmethod
+    def calculate_max_vector(articles):
+
+        max_indicator_count = 0
+        max_average_sentence_length = 0
+        max_average_number_of_subsentences = 0
+        max_token_count = 0
+        max_stopword_to_remaining_words_ratio = 0
+        max_left_words_counter = 0
+        max_right_words_counter = 0
+        max_paratax_hypotax_counter = 0
+
+
+        for article in articles:
+            if article.vector.indicator_count > max_indicator_count:
+                max_indicator_count = article.vector.indicator_count
+
+            if article.vector.average_sentence_length > max_average_sentence_length:
+                max_average_sentence_length = article.vector.average_sentence_length
+
+            if article.vector.average_number_of_subsentences > max_average_number_of_subsentences:
+                max_average_number_of_subsentences = article.vector.average_number_of_subsentences
+
+            if article.vector.token_count > max_token_count:
+                max_token_count = article.vector.token_count
+
+            if article.vector.stopword_to_remaining_words_ratio > max_stopword_to_remaining_words_ratio:
+                max_stopword_to_remaining_words_ratio = article.vector.stopword_to_remaining_words_ratio
+
+            if article.vector.left_words_counter > max_left_words_counter:
+                max_left_words_counter = article.vector.left_words_counter
+
+            if article.vector.right_words_counter > max_right_words_counter:
+                max_right_words_counter = article.vector.right_words_counter
+
+            if article.vector.paratax_hypotax_count > max_paratax_hypotax_counter:
+                max_paratax_hypotax_counter = article.vector.paratax_hypotax_count
+
+        max_vector = ArgumentVector.ArgumentVector()
+        max_vector._token_count = max_token_count
+        max_vector._indicator_count = max_indicator_count
+        max_vector._average_number_of_subsentences = max_average_number_of_subsentences
+        max_vector._average_sentence_length = max_average_sentence_length
+        max_vector.left_words_counter = max_left_words_counter
+        max_vector.right_words_counter = max_right_words_counter
+        max_vector.paratax_hypotax_count = max_paratax_hypotax_counter
+
+
+        return max_vector
+
+    @staticmethod
+    def calculate_min_vector(articles):
+
+        first_article = next(iter(articles or []), None)
+
+        min_indicator_count = first_article.vector.indicator_count
+        min_average_sentence_length = first_article.vector.average_sentence_length
+        min_average_number_of_subsentences = first_article.vector.average_number_of_subsentences
+        min_token_count = first_article.vector.token_count
+        min_stopword_to_remaining_words_ratio = first_article.vector.stopword_to_remaining_words_ratio
+        min_left_words_counter = first_article.vector.left_words_counter
+        min_right_words_counter = first_article.vector.right_words_counter
+        min_paratax_hypotax_counter = first_article.vector.paratax_hypotax_count
+
+        for article in articles:
+            if article.vector.indicator_count < min_indicator_count:
+                min_indicator_count = article.vector.indicator_count
+
+            if article.vector.average_sentence_length < min_average_sentence_length:
+                min_average_sentence_length = article.vector.average_sentence_length
+
+            if article.vector.average_number_of_subsentences < min_average_number_of_subsentences:
+                min_average_number_of_subsentences = article.vector.average_number_of_subsentences
+
+            if article.vector.token_count < min_token_count:
+                min_token_count = article.vector.token_count
+
+            if article.vector.stopword_to_remaining_words_ratio < min_stopword_to_remaining_words_ratio:
+                min_stopword_to_remaining_words_ratio = article.vector.stopword_to_remaining_words_ratio
+
+            if article.vector.left_words_counter < min_left_words_counter:
+                min_left_words_counter = article.vector.left_words_counter
+
+            if article.vector.right_words_counter < min_right_words_counter:
+                min_right_words_counter = article.vector.right_words_counter
+
+            if article.vector.paratax_hypotax_count < min_paratax_hypotax_counter:
+                min_paratax_hypotax_counter = article.vector.paratax_hypotax_count
+
+        min_vector = ArgumentVector.ArgumentVector()
+        min_vector._token_count = min_token_count
+        min_vector._indicator_count = min_indicator_count
+        min_vector._average_number_of_subsentences = min_average_number_of_subsentences
+        min_vector._average_sentence_length = min_average_sentence_length
+        min_vector.left_words_counter = min_left_words_counter
+        min_vector.right_words_counter = min_right_words_counter
+        min_vector.paratax_hypotax_count = min_paratax_hypotax_counter
+
+        return min_vector
