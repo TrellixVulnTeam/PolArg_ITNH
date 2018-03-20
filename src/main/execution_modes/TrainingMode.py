@@ -6,6 +6,8 @@ from main import ArticleReader, StopwordRemover, CorpusCleaner
 
 from main.vector import VectorCalculator
 from main.vector import VectorFileHandler
+import nltk
+nltk.download('stopwords')
 from main.vector.tagging import Tagger
 
 
@@ -49,11 +51,25 @@ hypotax_path = ROOT_DIR + 'resources/hypotax_file.txt'
 left_orientation_path = ROOT_DIR + 'resources/Linksausgerichtet.txt'
 right_orientation_path = ROOT_DIR + 'resources/Rechtsausgerichtet.txt'
 
-test_corpus_path = ROOT_DIR +  "resources/Test Corpus"
+left_corpus_path = ROOT_DIR +  "resources/LearnCorpusLeft"
+right_corpus_path = ROOT_DIR + "resources/LearnCorpusRight"
 
 
 TrainingMode.execute_training(
-    test_corpus_path,
+    left_corpus_path,
+    500,
+    premise_path,
+    conclusion_path,
+    paratax_path,
+    hypotax_path,
+    left_orientation_path,
+    right_orientation_path,
+    1,
+    'VectorFile',
+    'generic')
+
+TrainingMode.execute_training(
+    right_corpus_path,
     500,
     premise_path,
     conclusion_path,

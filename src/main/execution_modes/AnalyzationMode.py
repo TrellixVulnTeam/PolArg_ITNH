@@ -3,6 +3,8 @@ from gevent import os
 from main import ArticleReader, StopwordRemover, StopwordFileReader, CorpusCleaner
 import VectorCalculator
 import VectorComparator
+import nltk
+nltk.download('stopwords')
 from tagging import Tagger
 
 
@@ -53,7 +55,7 @@ hypotax_path = ROOT_DIR + 'resources/hypotax_file.txt'
 left_orientation_path = ROOT_DIR + 'resources/Linksausgerichtet.txt'
 right_orientation_path = ROOT_DIR + 'resources/Rechtsausgerichtet.txt'
 
-test_corpus_path = ROOT_DIR + "resources/Test Corpus"
+test_corpus_path = ROOT_DIR + "resources/AnalyseCorpus"
 
 AnalyzationMode.execute(
     test_corpus_path,
