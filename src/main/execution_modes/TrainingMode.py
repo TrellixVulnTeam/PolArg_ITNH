@@ -57,7 +57,7 @@ right_corpus_path = ROOT_DIR + "resources/LearnCorpusRight"
 
 TrainingMode.execute_training(
     left_corpus_path,
-    500,
+    100,
     premise_path,
     conclusion_path,
     paratax_path,
@@ -66,11 +66,12 @@ TrainingMode.execute_training(
     right_orientation_path,
     1,
     'VectorFileLeft',
-    'generic')
+    'left')
+
 
 TrainingMode.execute_training(
     right_corpus_path,
-    500,
+    100,
     premise_path,
     conclusion_path,
     paratax_path,
@@ -79,4 +80,5 @@ TrainingMode.execute_training(
     right_orientation_path,
     1,
     'VectorFileRight',
-    'generic')
+    'right')
+

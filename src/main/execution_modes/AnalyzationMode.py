@@ -55,11 +55,11 @@ hypotax_path = ROOT_DIR + 'resources/hypotax_file.txt'
 left_orientation_path = ROOT_DIR + 'resources/Linksausgerichtet.txt'
 right_orientation_path = ROOT_DIR + 'resources/Rechtsausgerichtet.txt'
 
-test_corpus_path = ROOT_DIR + "resources/AnalyseCorpus"
+test_corpus_path = ROOT_DIR + "resources/LearnCorpusRight"
 
 AnalyzationMode.execute(
     test_corpus_path,
-    500,
+    100,
     premise_path,
     conclusion_path,
     paratax_path,

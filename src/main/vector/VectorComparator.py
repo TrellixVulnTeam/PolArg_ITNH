@@ -33,12 +33,16 @@ class VectorComparator:
         return comparison_result
 
     def compare_vectors(reference_vector, comparison_vector):
-        similarity = 0.0
 
         inner_product = reference_vector.indicator_count * comparison_vector.indicator_count
         inner_product += reference_vector.average_sentence_length * comparison_vector.average_sentence_length
         inner_product += reference_vector.average_number_of_subsentences * comparison_vector.average_number_of_subsentences
         inner_product += reference_vector.token_count * comparison_vector.token_count
+        inner_product += reference_vector.stopword_to_remaining_words_ratio * comparison_vector.stopword_to_remaining_words_ratio
+        inner_product += reference_vector.left_words_counter * comparison_vector.left_words_counter
+        inner_product += reference_vector.right_words_counter * comparison_vector.right_words_counter
+        inner_product += reference_vector.paratax_hypotax_count * comparison_vector.paratax_hypotax_count
+        inner_product += reference_vector.premise_conclusion_count * comparison_vector.premise_conclusion_count
 
         length_vector1 = VectorComparator.calculate_vector_length(reference_vector)
         length_vector2 = VectorComparator.calculate_vector_length(comparison_vector)
@@ -47,6 +51,10 @@ class VectorComparator:
 
     @staticmethod
     def calculate_vector_length(vector):
-        return math.sqrt(vector.indicator_count * vector.indicator_count + vector.average_sentence_length *
-                vector.average_sentence_length + vector.average_number_of_subsentences *
-                vector.average_number_of_subsentences + vector.token_count * vector.token_count)
+        return math.sqrt(vector.indicator_count * vector.indicator_count +  vector.average_sentence_length *
+             vector.average_sentence_length + vector.average_number_of_subsentences * vector.average_number_of_subsentences
+        + vector.stopword_to_remaining_words_ratio * vector.stopword_to_remaining_words_ratio
+                + vector.left_words_counter * vector.left_words_counter + vector.right_words_counter * vector.right_words_counter + vector.paratax_hypotax_count * vector.paratax_hypotax_count
+                         + vector.premise_conclusion_count * vector.premise_conclusion_count + vector.token_count * vector.token_count)
+
+#+  +  +

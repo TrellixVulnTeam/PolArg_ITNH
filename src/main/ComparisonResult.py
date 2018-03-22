@@ -52,3 +52,8 @@ class ComparisonResult(object):
         print("Analyzation results of the article with the id: " + self._article_reference)
         print("The similarity to the policitcal orientation " + self._orientation_one_name + " is " + "%.9f" % self._orientation_one_similarity + ".")
         print("The similarity to the policitcal orientation " + self._orientation_two_name + " is " + "%.9f" % self._orientation_two_similarity + ".")
+
+        if (self._orientation_one_similarity > self._orientation_two_similarity):
+            print(self._orientation_one_name)
+        else:
+            print(self._orientation_two_name)

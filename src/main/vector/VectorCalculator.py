@@ -138,7 +138,6 @@ class VectorCalculator:
         max_vector.right_words_counter = max_right_words_counter
         max_vector.paratax_hypotax_count = max_paratax_hypotax_counter
 
-
         return max_vector
 
     @staticmethod
