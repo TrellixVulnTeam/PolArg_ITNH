@@ -67,7 +67,7 @@ AnalyzationMode.execute(
     left_orientation_path,
     right_orientation_path,
     2,
-    "VectorFile",
+    "VectorFileLeft",
     "Links",
-    "VectorFile",
+    "VectorFileRight",
     "Rechts")

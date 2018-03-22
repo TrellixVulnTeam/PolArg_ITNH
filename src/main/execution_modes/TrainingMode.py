@@ -36,7 +36,7 @@ class TrainingMode(object):
                                                                    indicator_threshold)
         articles = CorpusCleaner.CorpusCleaner.clean_corpus_from_non_argumentation_articles(articles)
 
-        averageVector = VectorCalculator.VectorCalculator.calculate_average_vector(articles)
+        averageVector = VectorCalculator.VectorCalculator.calculate_min_vector(articles)
         averageVector._orientation = training_file_orientation
 
         VectorFileHandler.VectorFileHandler.safe_vector_in_file(averageVector, path_to_vector_file)
@@ -65,7 +65,7 @@ TrainingMode.execute_training(
     left_orientation_path,
     right_orientation_path,
     1,
-    'VectorFile',
+    'VectorFileLeft',
     'generic')
 
 TrainingMode.execute_training(
@@ -78,5 +78,5 @@ TrainingMode.execute_training(
     left_orientation_path,
     right_orientation_path,
     1,
-    'VectorFile',
+    'VectorFileRight',
     'generic')
