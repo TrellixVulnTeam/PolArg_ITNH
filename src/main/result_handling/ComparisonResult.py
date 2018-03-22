@@ -47,13 +47,17 @@ class ComparisonResult(object):
     def orientation_two_similarity(self, val):
         self._orientation_two_similarity = val
 
-    @staticmethod
-    def show_result(self):
-        print("Analyzation results of the article with the id: " + self._article_reference)
-        print("The similarity to the policitcal orientation " + self._orientation_one_name + " is " + "%.9f" % self._orientation_one_similarity + ".")
-        print("The similarity to the policitcal orientation " + self._orientation_two_name + " is " + "%.9f" % self._orientation_two_similarity + ".")
+
+    def get_result(self):
+        return_string = "Analyzation results of the article with the id: " + self._article_reference + "\n"
+        return_string += "The similarity to the policitcal orientation " + self._orientation_one_name + " is " + "%.9f" % self._orientation_one_similarity + "."+ "\n"
+
+
+        return_string += "The similarity to the policitcal orientation " + self._orientation_two_name + " is " + "%.9f" % self._orientation_two_similarity + "." + "\n"
 
         if (self._orientation_one_similarity > self._orientation_two_similarity):
-            print(self._orientation_one_name)
+            return_string += self._orientation_one_name + "\n"
         else:
-            print(self._orientation_two_name)
+            return_string += self._orientation_two_name + "\n"
+
+        return return_string

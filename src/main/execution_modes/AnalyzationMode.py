@@ -4,6 +4,9 @@ from main import ArticleReader, StopwordRemover, StopwordFileReader, CorpusClean
 import VectorCalculator
 import VectorComparator
 import nltk
+
+from main.result_handling import ResultFileWriter
+
 nltk.download('stopwords')
 from tagging import Tagger
 
@@ -19,7 +22,9 @@ class AnalyzationMode(object):
                 path_to_training_file_one,
                 training_file_one_orientation,
                 path_to_training_file_two,
-                training_file_two_orientation):
+                training_file_two_orientation,
+                comparison_result_destination,
+                analyzation_run_name):
         corpus = ArticleReader.ArticleReader.read_articles(path_to_analyzation_files, minimal_article_length)
 
         corpus = CorpusCleaner.CorpusCleaner.clean_corpus_from_empty_articles(corpus)
@@ -41,8 +46,7 @@ class AnalyzationMode(object):
             path_to_training_file_one,
             path_to_training_file_two)
 
-        for result in comparison_results:
-            result.show_result(result)
+        ResultFileWriter.ResultFileWriter.write_analyzation_results_for_whole_corpus(comparison_results,comparison_result_destination,analyzation_run_name)
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -55,6 +59,8 @@ hypotax_path = ROOT_DIR + 'resources/hypotax_file.txt'
 left_orientation_path = ROOT_DIR + 'resources/Linksausgerichtet.txt'
 right_orientation_path = ROOT_DIR + 'resources/Rechtsausgerichtet.txt'
 
+comparison_result_path = ROOT_DIR + 'analyzation_results/'
+test_run_name = "ResultFile"
 test_corpus_path = ROOT_DIR + "resources/LearnCorpusRight"
 
 AnalyzationMode.execute(
@@ -70,4 +76,6 @@ AnalyzationMode.execute(
     "VectorFileLeft",
     "Links",
     "VectorFileRight",
-    "Rechts")
+    "Rechts",
+    comparison_result_path,
+    test_run_name)
