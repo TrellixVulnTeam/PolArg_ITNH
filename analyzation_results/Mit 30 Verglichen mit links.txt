@@ -1,0 +1,109 @@
+C:\Users\Paul\PycharmProjects\PolArg\venv1\Scripts\python.exe C:/Users/Paul/PycharmProjects/PolArg/src/main/execution_modes/AnalyzationMode.py
+
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\Paul\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+30
+Calculating vectors for corpus
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98629
+The similarity to the policitcal orientation left is 0.046118146.
+The similarity to the policitcal orientation right is 0.055843650.
+right
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98861
+The similarity to the policitcal orientation left is 0.055031752.
+The similarity to the policitcal orientation right is 0.047618534.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98246
+The similarity to the policitcal orientation left is 0.054613062.
+The similarity to the policitcal orientation right is 0.122423889.
+right
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98767
+The similarity to the policitcal orientation left is 0.055917827.
+The similarity to the policitcal orientation right is 0.047531262.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98581
+The similarity to the policitcal orientation left is 0.110015834.
+The similarity to the policitcal orientation right is 0.015060096.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-97747
+The similarity to the policitcal orientation left is 0.115589953.
+The similarity to the policitcal orientation right is 0.017897240.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98906
+The similarity to the policitcal orientation left is 0.110725943.
+The similarity to the policitcal orientation right is 0.028303873.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-003-99252
+The similarity to the policitcal orientation left is 0.121498800.
+The similarity to the policitcal orientation right is 0.025495976.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-003-97090
+The similarity to the policitcal orientation left is 0.116381848.
+The similarity to the policitcal orientation right is 0.018784061.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-003-99504
+The similarity to the policitcal orientation left is 0.104455245.
+The similarity to the policitcal orientation right is 0.004746153.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-004-100441
+The similarity to the policitcal orientation left is 0.116821141.
+The similarity to the policitcal orientation right is 0.015642336.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-004-100325
+The similarity to the policitcal orientation left is 0.111777007.
+The similarity to the policitcal orientation right is 0.010421109.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-004-100520
+The similarity to the policitcal orientation left is 0.108799621.
+The similarity to the policitcal orientation right is 0.009016087.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-941435
+The similarity to the policitcal orientation left is 0.103733845.
+The similarity to the policitcal orientation right is 0.009288415.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-941457
+The similarity to the policitcal orientation left is 0.052976174.
+The similarity to the policitcal orientation right is 0.050497284.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-941447
+The similarity to the policitcal orientation left is 0.082076026.
+The similarity to the policitcal orientation right is 0.022386058.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-940975
+The similarity to the policitcal orientation left is 0.111696351.
+The similarity to the policitcal orientation right is 0.014018146.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-939374
+The similarity to the policitcal orientation left is 0.109775840.
+The similarity to the policitcal orientation right is 0.013380921.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-937020
+The similarity to the policitcal orientation left is 0.110571467.
+The similarity to the policitcal orientation right is 0.009224839.
+left
+
+Analyzation results of the article with the id: PMGSPON-xPMG-SPOX-941410
+The similarity to the policitcal orientation left is 0.103957759.
+The similarity to the policitcal orientation right is 0.007051470.
+left
+
+
+Process finished with exit code 0

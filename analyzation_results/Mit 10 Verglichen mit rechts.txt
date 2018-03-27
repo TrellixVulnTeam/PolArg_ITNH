@@ -1,0 +1,44 @@
+Analyzation results of the article with the id: CODESCO-SP-2014-007-138047
+The similarity to the policitcal orientation left is 0.127568468.
+The similarity to the policitcal orientation right is 0.012880649.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-010-132766
+The similarity to the policitcal orientation left is 0.129780254.
+The similarity to the policitcal orientation right is 0.013896548.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-011-140503
+The similarity to the policitcal orientation left is 0.129572570.
+The similarity to the policitcal orientation right is 0.010415292.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-011-140400
+The similarity to the policitcal orientation left is 0.121103732.
+The similarity to the policitcal orientation right is 0.000000000.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-012-141291
+The similarity to the policitcal orientation left is 0.127852037.
+The similarity to the policitcal orientation right is 0.009612283.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-012-140999
+The similarity to the policitcal orientation left is 0.129751244.
+The similarity to the policitcal orientation right is 0.011835544.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-014-142679
+The similarity to the policitcal orientation left is 0.127921965.
+The similarity to the policitcal orientation right is 0.008769535.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-020-146169
+The similarity to the policitcal orientation left is 0.137377821.
+The similarity to the policitcal orientation right is 0.031869365.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2014-022-146538
+The similarity to the policitcal orientation left is 0.130611025.
+The similarity to the policitcal orientation right is 0.014042682.
+left

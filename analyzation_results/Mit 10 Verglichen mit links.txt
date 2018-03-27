@@ -1,0 +1,35 @@
+Calculating vectors for corpus
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98629
+The similarity to the policitcal orientation left is 0.062695368.
+The similarity to the policitcal orientation right is 0.059785735.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98861
+The similarity to the policitcal orientation left is 0.069967536.
+The similarity to the policitcal orientation right is 0.051164889.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98246
+The similarity to the policitcal orientation left is 0.035154204.
+The similarity to the policitcal orientation right is 0.126873171.
+right
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98767
+The similarity to the policitcal orientation left is 0.070066262.
+The similarity to the policitcal orientation right is 0.052529308.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98581
+The similarity to the policitcal orientation left is 0.125297393.
+The similarity to the policitcal orientation right is 0.009421419.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-97747
+The similarity to the policitcal orientation left is 0.131531827.
+The similarity to the policitcal orientation right is 0.011376873.
+left
+
+Analyzation results of the article with the id: CODESCO-SP-2013-002-98906
+The similarity to the policitcal orientation left is 0.121606570.
+The similarity to the policitcal orientation right is 0.031870884.
+left
