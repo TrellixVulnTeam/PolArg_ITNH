@@ -1,7 +1,7 @@
 class ArgumentVector(object):
 
     def __init__(self):
-        self.indicator_count = 0
+        self.indicator_count = 0                    # Argumentation Indicators
         self.average_sentence_length = 0
         self.average_number_of_subsentences = 0
         self.token_count = 0
@@ -118,6 +118,4 @@ class ArgumentVector(object):
         return True
 
 
-vector = ArgumentVector()
-vector.premise_conclusion_count = 12
-print()
+

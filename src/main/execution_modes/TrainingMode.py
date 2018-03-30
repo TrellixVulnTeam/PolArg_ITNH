@@ -13,6 +13,21 @@ from main.vector.tagging import Tagger
 
 class TrainingMode(object):
 
+    # Analyzes each article in a given corpus and calculates vectors representing the argumentation and its complexity.
+    # Calculates the average vector of all calculated vectors and safes it in an desired path
+    #
+    # path_to_training_files: directory where the corpus of articles is located
+    # minimal_article_length: length an article has to have to be analyzed
+    # path_to_premise_file: directory where the text file with the premise indicators is located
+    # path_to_conjunction_file: directory where the text file with the conjunction indicators is located
+    # path_to_paratax_file: directory where the text file with the paratax indicators is located
+    # path_to_hypotax_file: directory where the text file with the hypotax indicators is located
+    # path_to_left_orientation_file: directory where the text file with the left wing indicators is located
+    # path_to_right_orientation_file: directory where the text file with the right wing indicators is located
+    # indicator_threshold: number of argumentation structures with claim/premise that is required for a text to be
+    #                       recognized as argumentation
+    # path_to_vector_file: path where the vector is safed
+    # training_file_one_orientation: political orientation of the training vector one
     @staticmethod
     def execute_training(path_to_training_files, minimal_article_length, path_to_premise_file, path_to_conjunction_file,
                          path_to_paratax_file, path_to_hypotax_file, path_to_left_orientation_file,

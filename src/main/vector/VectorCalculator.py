@@ -7,6 +7,17 @@ from main.argumentation_parsing.TokenCounter import TokenCounter
 
 class VectorCalculator:
 
+    # Calculate the vector for each article in the corpus.
+    # Returns the corpus with updated vectors in the articles
+    #
+    # path_to_premise_file: directory where the text file with the premise indicators is located
+    # path_to_conjunction_file: directory where the text file with the conjunction indicators is located
+    # path_to_paratax_file: directory where the text file with the paratax indicators is located
+    # path_to_hypotax_file: directory where the text file with the hypotax indicators is located
+    # path_to_left_orientation_file: directory where the text file with the left wing indicators is located
+    # path_to_right_orientation_file: directory where the text file with the right wing indicators is located
+    # indicator_threshold: number of argumentation structures with claim/premise that is required for a text to be
+    #                       recognized as argumentation
     def update_vectors_in_corpus(corpus, path_to_premise_file, path_to_conjunction_file, path_to_paratax_file,
                                  path_to_hypotax_file, path_to_left_orientation_file, path_to_right_orientation_file,
                                  indicator_threshold):
@@ -27,6 +38,16 @@ class VectorCalculator:
 
         return corpus
 
+    # Calculate the vector for a given article and replaces the vector in the article
+    #
+    # path_to_premise_file: directory where the text file with the premise indicators is located
+    # path_to_conjunction_file: directory where the text file with the conjunction indicators is located
+    # path_to_paratax_file: directory where the text file with the paratax indicators is located
+    # path_to_hypotax_file: directory where the text file with the hypotax indicators is located
+    # path_to_left_orientation_file: directory where the text file with the left wing indicators is located
+    # path_to_right_orientation_file: directory where the text file with the right wing indicators is located
+    # indicator_threshold: number of argumentation structures with claim/premise that is required for a text to be
+    #                       recognized as argumentation
     @staticmethod
     def calculate_vector(article, premise_list, conjunction_list, paratax_list, hypotax_list,
                          left_orientation_indicators, right_orientation_indicators, indicator_threshold):
@@ -57,6 +78,7 @@ class VectorCalculator:
         article.vector = vector
         return article
 
+    # Calculates the average vector over all articles
     @staticmethod
     def calculate_average_vector(articles):
 
@@ -90,7 +112,7 @@ class VectorCalculator:
 
         return average_vector
 
-
+    #Unused
     @staticmethod
     def calculate_max_vector(articles):
 
@@ -140,6 +162,7 @@ class VectorCalculator:
 
         return max_vector
 
+    #Unused
     @staticmethod
     def calculate_min_vector(articles):
 

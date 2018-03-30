@@ -6,6 +6,12 @@ from main.result_handling import ComparisonResult
 
 class VectorComparator:
 
+    # Compares the vector of every article in the corpus to the vectors contained in the two given paths.
+    # Calculates the cosine similarity towards both training vectors and returns the comparison results.
+    #
+    # corpus: corpus of articles with already calculated vectors
+    # path_to_training_file_one: path to training vector one
+    # path_to_training_file_two: path to training vector two
     @staticmethod
     def compare_corpus_vectors_to_training_vectors(corpus, path_to_training_file_one, path_to_training_file_two):
         comparison_results = list()
@@ -32,6 +38,7 @@ class VectorComparator:
 
         return comparison_result
 
+    # Calculates the cosine similarity of two vectors
     def compare_vectors(reference_vector, comparison_vector):
 
         inner_product = reference_vector.indicator_count * comparison_vector.indicator_count
@@ -49,6 +56,7 @@ class VectorComparator:
 
         return math.acos(inner_product / (length_vector1 * length_vector2))
 
+    # Calculate the length of a vector
     @staticmethod
     def calculate_vector_length(vector):
         return math.sqrt(vector.indicator_count * vector.indicator_count +  vector.average_sentence_length *
@@ -57,4 +65,3 @@ class VectorComparator:
                 + vector.left_words_counter * vector.left_words_counter + vector.right_words_counter * vector.right_words_counter + vector.paratax_hypotax_count * vector.paratax_hypotax_count
                          + vector.premise_conclusion_count * vector.premise_conclusion_count + vector.token_count * vector.token_count)
 
-#+  +  +

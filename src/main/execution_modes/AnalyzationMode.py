@@ -13,6 +13,26 @@ from tagging import Tagger
 
 class AnalyzationMode(object):
 
+    # Analyzes each article in a given corpus and calculates vectors representing the argumentation and its complexity.
+    # Compares the calculated vectors to the vectors inserted in the method and returns to which of the given
+    # vectors the similarity is the best. The results are safed in the analyzation_results directory.
+    #
+    # path_to_analyzation_files: directory where the corpus of articles is located
+    # minimal_article_length: length an article has to have to be analyzed
+    # path_to_premise_file: directory where the text file with the premise indicators is located
+    # path_to_conjunction_file: directory where the text file with the conjunction indicators is located
+    # path_to_paratax_file: directory where the text file with the paratax indicators is located
+    # path_to_hypotax_file: directory where the text file with the hypotax indicators is located
+    # path_to_left_orientation_file: directory where the text file with the left wing indicators is located
+    # path_to_right_orientation_file: directory where the text file with the right wing indicators is located
+    # indicator_threshold: number of argumentation structures with claim/premise that is required for a text to be
+    #                       recognized as argumentation
+    # path_to_training_file_one: path to the training vector one
+    # training_file_one_orientation: political orientation of the training vector one
+    # path_to_training_file_two: path to the training vector two
+    # training_file_two_orientation: political orientation of the training vector two
+    # comparison_result_destination: directory where the results are safed
+    # analyzation_run_name: name of the current analyzation name. The result file is named accordingly + the current date and time
     @staticmethod
     def execute(path_to_analyzation_files, minimal_article_length, path_to_premise_file,
                 path_to_conjunction_file,
