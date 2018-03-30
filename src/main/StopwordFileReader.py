@@ -1,3 +1,4 @@
+# Reads the Stopword file
 class StopwordFileReader(object):
 
     @staticmethod

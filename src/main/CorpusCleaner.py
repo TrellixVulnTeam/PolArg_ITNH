@@ -1,3 +1,6 @@
+
+
+# Cleans the corpus from empty articles and articles without argumentation
 class CorpusCleaner():
 
     @staticmethod

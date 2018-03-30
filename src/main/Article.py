@@ -1,6 +1,7 @@
 from main.vector.ArgumentVector import ArgumentVector
 
 
+# Article object with all necessary information
 class Article(object):
     def __init__(self):
         self._id = ""
