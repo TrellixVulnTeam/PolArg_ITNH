@@ -12,8 +12,8 @@ class ArticleReader():
     # SAves the information in article objects
     def read_articles(loc_corpus, article_length):
 
-        texts_online = glob(loc_corpus + '/Online/*')
-        texts_magazine = glob(loc_corpus + '/Magazin/*')
+        texts_online = glob(loc_corpus + '/*/*')
+        texts_magazine = glob(loc_corpus + '/*/*')
         years_online = []
         years_magazine = []
         for text in texts_online:
